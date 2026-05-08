@@ -1,0 +1,16 @@
+# Ignore Ruby related files
+*.gem
+*.rbc
+/tmp/
+/log/
+/bin/
+.config
+core
+*.out
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore VS Code files
+.vscode/
