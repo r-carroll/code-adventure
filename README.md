@@ -16,6 +16,16 @@ The most important thing is that you understand **why** the code works before yo
 ## 🛠 Step 1: Prepare Your Tools
 Before we start coding, we need to set up your "blacksmith shop" (your computer).
 
+### 0. Get the Adventure (Download the Code)
+You need to copy these files to your own computer first!
+1. Go to the main [Code Adventure page on GitHub](https://github.com/r-carroll/code-adventure).
+2. Look for the green **"<> Code"** button near the top right of the file list.
+3. Click it and choose **"Download ZIP"**.
+4. Once it's downloaded, find the file (usually in your "Downloads" folder) and **"Extract All"** or **"Unzip"** it.
+5. Move the new folder to your **Desktop** so it's easy to find later.
+
+> **Pro Tip:** If you already know how to use Git, you can type `git clone https://github.com/r-carroll/code-adventure.git` in your terminal instead!
+
 ### 1. Install Ruby
 Ruby is the language we will use to talk to the computer.
 - **Windows:** Go to [RubyInstaller.org](https://rubyinstaller.org/) and download the **Ruby+Devkit 3.3.x (x64)** version. Run the installer and just click "Next" on everything!
