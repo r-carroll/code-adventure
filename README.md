@@ -39,7 +39,6 @@ This is where you will see and write your code.
 ### 3. Install Gemini CLI
 This is your AI partner. It will help you write code and explain it to you.
 - Download and install it here: [geminicli.com](https://geminicli.com)
-- **Important:** At the start of every chat, you should "train" your AI to be a good teacher. Copy the text inside the [SYSTEM_INSTRUCTIONS.txt](./SYSTEM_INSTRUCTIONS.txt) file and paste it into your first message to Gemini!
 
 ### 4. How to open your "Terminal"
 The terminal is a text-only window where you type commands.
@@ -77,4 +76,7 @@ If you want to see what a finished game looks like, check out [adventure_sample.
 ---
 
 ## 🚦 Ready? Let's Go!
-Go to [LEVEL_1.md](./docs/LEVEL_1.md) to start your first line of code.
+To start your journey, open your terminal in this folder and simply type:
+`gemini "Hello!"`
+
+Your AI partner will guide you from there!
