@@ -9,6 +9,6 @@
       "extensions": ["Shopify.ruby-lsp"]
     }
   },
-  "postCreateCommand": "npm install -g @anthropic-ai/claude-code @google/gemini-cli",
-  "postAttachCommand": "echo '===================================='; echo 'Welcome to Code Adventure!'; echo 'ようこそ、コード・アドベンチャーへ!'; echo '===================================='; echo ''; echo 'Your AI tutor is ready! Type `claude` or `gemini` to start chatting.'; echo 'AI先生の準備ができました！ `claude` か `gemini` と入力して話しかけてみよう。'; echo ''; echo 'To begin your quest, run:'; echo '  ruby quest.rb'; echo ''; echo 'クエストを始めるには、実行してください:'; echo '  ruby quest.rb'"
+  "postCreateCommand": "npm install -g @anthropic-ai/claude-code && curl -fsSL https://antigravity.google/cli/install.sh | bash",
+  "postAttachCommand": "echo '===================================='; echo 'Welcome to Code Adventure!'; echo 'ようこそ、コード・アドベンチャーへ!'; echo '===================================='; echo ''; echo 'Your AI tutor is ready! Type `claude` or `agy` to start chatting.'; echo 'AI先生の準備ができました！ `claude` か `agy` と入力して話しかけてみよう。'; echo ''; echo 'To begin your quest, run:'; echo '  ruby quest.rb'; echo ''; echo 'クエストを始めるには、実行してください:'; echo '  ruby quest.rb'"
 }

@@ -1,4 +1,4 @@
-NOTE: This file is legacy. The AI tutor rules now load automatically from GEMINI.md and CLAUDE.md when you use those AI tools. Only paste this file's contents if your AI tool doesn't auto-read those files.
+NOTE: This file is legacy. The AI tutor rules now load automatically from AGENTS.md and CLAUDE.md when you use those AI tools. Only paste this file's contents if your AI tool doesn't auto-read those files.
 
 ---
 
@@ -23,4 +23,4 @@ CONTEXT:
 - Levels 1–10 are cumulative; checks are automated, so shortcuts don't work
 - Your role: guide understanding, not provide solutions
 
-See GEMINI.md or CLAUDE.md for the full instructions.
+See AGENTS.md or CLAUDE.md for the full instructions.

@@ -23,7 +23,7 @@ The easiest way to start — no installing anything on your own computer.
    ```
 5. Your quest begins! 🎉
 
-That's it. Your AI coding tutor is already built in and ready to help — more on that below.
+That's it. Your AI coding tutor (`claude` and `agy`) is already installed and waiting for you in this Codespace — jump to **[Opening Your AI Tutor](#-opening-your-ai-tutor)** below to start chatting with it.
 
 ---
 
@@ -43,10 +43,10 @@ That's it. Your AI coding tutor is already built in and ready to help — more o
 
 ### 3. Install an AI coding CLI
 Pick one — you only need one:
-- [Gemini CLI](https://geminicli.com)
+- [Antigravity CLI](https://antigravity.google/product/antigravity-cli)
 - [Claude Code](https://claude.com/claude-code)
 
-Nice part: you don't need to paste any instructions to "train" it. This repo already contains `GEMINI.md` and `CLAUDE.md` — whichever tool you use loads its tutor rules automatically the moment you run it in this folder. Your AI already knows how to be a good teacher for this project.
+Nice part: you don't need to paste any instructions to "train" it. This repo already contains `AGENTS.md` and `CLAUDE.md` — whichever tool you use loads its tutor rules automatically the moment you run it in this folder. Your AI already knows how to be a good teacher for this project.
 
 ### 4. Open a terminal
 - **Windows:** Press the Windows key, type `PowerShell`, press Enter.
@@ -58,7 +58,46 @@ Nice part: you don't need to paste any instructions to "train" it. This repo alr
 ruby quest.rb
 ```
 
+Next, check out **[Opening Your AI Tutor](#-opening-your-ai-tutor)** below — it walks you through actually starting a chat with your coding partner.
+
 </details>
+
+---
+
+## 🧑‍🏫 Opening Your AI Tutor
+
+`ruby quest.rb` shows you *what* to build. Your AI tutor is *who* helps you actually write it. Here's exactly how to open it and start talking — step by step, no guessing.
+
+### Step 1: Open a second terminal
+
+You want **two terminals** side by side: one running your quest, one for chatting with your AI tutor.
+
+- **In GitHub Codespaces (or VS Code):** Look at the Terminal panel at the bottom of your screen. In its top-right corner, find the **split terminal** icon — two little rectangles side by side — and click it. A second terminal opens right next to your first one.
+- **On Windows:** Press the Windows key, type `PowerShell`, and press Enter to open another window.
+- **On Mac:** With Terminal already open, press `Cmd + T` for a new tab (or `Cmd + N` for a whole new window).
+
+You can always open more later — you won't break anything.
+
+### Step 2: Wake up your AI tutor
+
+Click into your **new** terminal (leave the one running `ruby quest.rb` alone) and type the command for whichever tool you installed, then press **Enter**:
+
+| If you installed... | Type this |
+|---|---|
+| Claude Code | `claude` |
+| Antigravity CLI | `agy` |
+
+Give it a few seconds. A colorful welcome screen means it's awake and ready to chat.
+
+> **First time using `agy`?** It'll ask you to sign in with a Google account — either a browser tab pops up, or (in Codespaces) it prints a link to click. Sign in once, then it remembers you.
+
+### Step 3: Ask it something
+
+Type your question in plain English (or 日本語!) and press Enter. Try one of the **Power Prompts** shown on your current level — `ruby quest.rb` prints a few every time.
+
+### Step 4: Go back and forth
+
+You never have to close the chat. Click between your two terminals: chat with your AI tutor in one, edit `adventure.rb` in your code editor, then switch to the other terminal to run `ruby quest.rb check`. Repeat until you level up!
 
 ---
 
@@ -101,7 +140,7 @@ The most important thing is understanding **why** your code works before moving 
 
 **Your AI is a tutor, not a builder.**
 
-Don't ask it to "build the whole game" — if you do that, the AI learns, but *you* don't. Your tutor already knows this rule (it's built into `GEMINI.md`/`CLAUDE.md`), and it will gently push back and break things into small steps if you ask for too much at once.
+Don't ask it to "build the whole game" — if you do that, the AI learns, but *you* don't. Your tutor already knows this rule (it's built into `AGENTS.md`/`CLAUDE.md`), and it will gently push back and break things into small steps if you ask for too much at once.
 
 Instead, try **Power Prompts** like these:
 - *"I want the player to pick a weapon from a list. How do I do that in Ruby, and what does `gets` actually do?"*
