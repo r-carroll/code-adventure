@@ -1,0 +1,45 @@
+id: 7
+xp: 200
+title:
+  en: "Symbols and Secrets"
+  ja: "シンボルと秘密"
+story:
+  en: "Strings are fine for text a player reads, but for the secret internal labels your game uses — like whether the hero is alive, dead, or victorious — Ruby has something faster and more reliable: Symbols. They look like `:forest` or `:alive`. Rewrite part of your world to use Symbols as Hash keys, and use one to track a piece of hidden game state."
+  ja: "プレイヤーが読む文章には文字列（String）で十分ですが、ゲームの内部だけで使う秘密のラベル——ヒーローが生きているか、死んでいるか、勝利したか——には、Rubyにはもっと速くて信頼できる仕組みがあります。それがシンボル（Symbol）です。`:forest` や `:alive` のように書きます。世界の一部をシンボルをキーにしたハッシュに書き換えて、シンボルを使って隠れたゲームの状態を1つ管理してみましょう。"
+task:
+  en:
+    - "Use at least one Symbol (like `:health` or `:alive`) as a Hash key somewhere in your game."
+    - "Read a value out of the Hash using its Symbol key (like `stats[:health]`)."
+  ja:
+    - "少なくとも1つのシンボル（`:health` や `:alive` など）を、ハッシュのキーとして使いましょう。"
+    - "そのシンボルのキーを使って、ハッシュから値を取り出しましょう（例：`stats[:health]`）。"
+concepts:
+  en: "Look for `:name` (the colon at the start makes it a Symbol) and `hash[:key]` (using a Symbol to pull a value out of a Hash). A pattern like `status = :playing` is a great way to track your game's 'state' — is the player `:alive`, `:dead`, or `:winner`?\n\nDeep dive: Symbols are immutable — once created, they can't be changed — which makes them fast and reliable as internal names and labels, unlike Strings which are just data a player might type or read. Ask your AI tutor about the difference between a String `'forest'` and a Symbol `:forest`, and why Symbols are faster for the computer to compare."
+  ja: "注目ポイントは `:name`（先頭のコロンがついているとシンボル）と、`hash[:key]`（シンボルを使ってハッシュから値を取り出す書き方）です。`status = :playing` のような書き方は、ゲームの「状態」——プレイヤーが `:alive`（生存）、`:dead`（死亡）、`:winner`（勝利）のどれか——を管理するのにぴったりです。\n\nもっと詳しく：シンボルはイミュータブル（不変）です——一度作ったら変更できません。だから内部の名前やラベルとして使うと、速くて信頼できます。プレイヤーが入力したり読んだりするただのデータである文字列（String）とは違います。文字列の `'forest'` とシンボルの `:forest` は何が違うのか、なぜシンボルの方がコンピューターにとって比較が速いのか、AI先生に聞いてみよう。"
+power_prompts:
+  en:
+    - "What is the difference between a String like 'forest' and a Symbol like :forest?"
+    - "Can you show me how to rewrite my world map Hash using Symbols as keys?"
+    - "How could I use a variable like `current_state` set to a Symbol to decide if my game loop should keep running?"
+  ja:
+    - "文字列の 'forest' と、シンボルの :forest は何が違うの？"
+    - "マップのハッシュを、シンボルをキーにして書き換える方法を教えて。"
+    - "シンボルを入れた `current_state` という変数を使って、ゲームのループを続けるかどうか決める方法を教えて。"
+checks:
+  - type: source
+    pattern: ':\w+\s*=>|\w+:\s'
+    hint:
+      en: "I couldn't find a Symbol being used as a Hash key (something like `:health =>` or `health:`). Ask your AI tutor: 'How do I use Symbols as Hash keys?'"
+      ja: "シンボルをハッシュのキーとして使っている部分（`:health =>` や `health:` のような形）が見つかりませんでした。AI先生に聞いてみよう：「シンボルをハッシュのキーとして使うにはどうすればいい？」"
+  - type: source
+    pattern: '\[:\w+\]'
+    hint:
+      en: "I couldn't find a Symbol being used to read a value, like `stats[:health]`. Ask your AI tutor how to look up a Hash value using a Symbol key!"
+      ja: "シンボルを使って値を取り出している部分（`stats[:health]` のような形）が見つかりませんでした。AI先生にシンボルのキーでハッシュの値を取り出す方法を聞いてみよう！"
+  - type: run
+    stdin: "Hero\n12\n1\nquit\n"
+    expect: []
+    forbid: ['(NoMethodError|NameError|SyntaxError|TypeError|ArgumentError|RuntimeError|ZeroDivisionError)']
+    hint:
+      en: "I played through your game and it crashed. Check that your Symbol keys match exactly (Ruby is picky about spelling and colons!) between where you set them and where you read them."
+      ja: "ゲームを動かしてみたらエラーが出ました。シンボルのキーが、設定した場所と読み取る場所でぴったり一致しているか確認してみよう（Rubyはスペルやコロンにとても厳しいです！）。"

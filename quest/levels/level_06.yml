@@ -1,0 +1,40 @@
+id: 6
+xp: 200
+title:
+  en: "Mapping the World"
+  ja: "世界の地図"
+story:
+  en: "Arrays are great for lists, but some things need more than an order — they need a description. Your world needs a map: places, stats, or facts that pair a name with information about it. Build a Hash that stores something meaningful about your hero or their world, and show a piece of it in the game."
+  ja: "配列（リスト）は順番に並べるのが得意ですが、中には「並び」よりも「説明」が必要なものもあります。君の世界には地図が必要です——名前とその情報がペアになったもの。ヒーローや世界について意味のある情報を保存するハッシュ（Hash）を作り、その中身の一部をゲームの中で見せてあげましょう。"
+task:
+  en:
+    - "Create a Hash that pairs a Key with a Value (for example, player stats like health, or world locations with descriptions)."
+    - "Look up and print at least one Value from the Hash somewhere in your game."
+  ja:
+    - "キー（Key）と値（Value）をペアにしたハッシュ（Hash）を作りましょう（例えば、プレイヤーのステータス（HPなど）や、場所とその説明など）。"
+    - "ハッシュから値を1つ以上取り出して、ゲームの中で表示しましょう。"
+concepts:
+  en: "Look for `world_map = { 'Forest' => 'A dark woods...' }` — this creates a Hash — and `world_map['Forest']`, which 'gets' the value back out.\n\nDeep dive: think of a Hash like a real dictionary. The word you look up is the Key, and the definition is the Value. You could use a Hash to store a monster's stats too, like `{ 'name' => 'Goblin', 'hp' => 50 }` — ask your AI tutor to show you how!"
+  ja: "注目ポイントは `world_map = { '森' => '暗い森が広がっている…' }`（ハッシュを作る書き方）と、`world_map['森']`（値を取り出す書き方）です。\n\nもっと詳しく：ハッシュは本物の「辞書」のようなものだと考えてください。調べたい言葉が Key（キー）で、その意味が Value（値）です。モンスターのステータスをハッシュで保存することもできます。例えば `{ '名前' => 'ゴブリン', 'HP' => 50 }` のように。やり方をAI先生に聞いてみよう！"
+power_prompts:
+  en:
+    - "Can you show me how to use a Hash in Ruby where the Key is a place name and the Value is its description?"
+    - "How do I look up a value from a Hash using its key?"
+    - "Could I use a Hash to store a monster's stats, like name and HP together?"
+  ja:
+    - "Rubyのハッシュを使って、キーを場所の名前、値をその説明にする方法を教えて。"
+    - "キーを使ってハッシュから値を取り出す方法を教えて。"
+    - "モンスターの名前とHPをまとめてハッシュで保存することはできる？"
+checks:
+  - type: source
+    pattern: '=>|\{\s*\w+:|\w+:\s'
+    hint:
+      en: "I couldn't find a Hash being created — something with `=>` or `key: value` pairs inside curly braces. Ask your AI tutor: 'How do I create a Hash in Ruby?'"
+      ja: "ハッシュを作っている部分（`=>` や、波かっこの中の `キー: 値` のペア）が見つかりませんでした。AI先生に聞いてみよう：「Rubyでハッシュを作るにはどうすればいい？」"
+  - type: run
+    stdin: "Hero\n12\n1\nquit\n"
+    expect: []
+    forbid: ['(NoMethodError|NameError|SyntaxError|TypeError|ArgumentError|RuntimeError|ZeroDivisionError)']
+    hint:
+      en: "I played through your game and it crashed. Double-check your Hash's curly braces and that you're looking up keys that actually exist."
+      ja: "ゲームを動かしてみたらエラーが出ました。ハッシュの波かっこの書き方や、存在するキーを正しく取り出しているか確認してみよう。"

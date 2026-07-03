@@ -1,0 +1,40 @@
+id: 8
+xp: 200
+title:
+  en: "The Roll of the Dice"
+  ja: "ダイスを振れ"
+story:
+  en: "A game where the same thing happens every single time gets boring fast. Real adventures have risk — a blow that might miss, an item that might be rare, an event that surprises you. It's time to roll the dice: add randomness somewhere in your game."
+  ja: "毎回同じことしか起きないゲームは、すぐに飽きてしまいます。本当の冒険にはリスクがつきもの——攻撃が外れるかもしれないし、レアなアイテムが出るかもしれないし、思いがけない出来事が起きるかもしれません。ここでダイスを振ってみましょう。ゲームのどこかにランダム（乱数）の要素を加えます。"
+task:
+  en:
+    - "Add randomness somewhere in your game using `rand` or `.sample` (for example, random damage, a randomly picked item, or a random event)."
+    - "Make sure the random outcome actually affects what happens or what's shown to the player."
+  ja:
+    - "`rand` または `.sample` を使って、ゲームのどこかにランダムな要素を加えましょう（例：ランダムなダメージ、ランダムに選ばれるアイテム、ランダムなイベントなど）。"
+    - "そのランダムな結果が、実際にゲームの展開やプレイヤーへの表示に影響するようにしましょう。"
+concepts:
+  en: "Look for `rand(1..10)` (gives a random number in that range) or `.sample` (picks a random item from an Array). A pattern like `if dice_roll > 15` creates a 'difficulty check' using that random number.\n\nDeep dive: computers aren't actually random — they use complex math to fake it, which is called pseudo-randomness. Ask your AI tutor how `rand` really works under the hood! Then try going further: could a roll of exactly 20 trigger a 'Critical Hit'? Could a 'Luck' stat add a bonus to the roll?"
+  ja: "注目ポイントは `rand(1..10)`（その範囲のランダムな数字を出す）や `.sample`（配列からランダムに1つ選ぶ）です。`if dice_roll > 15` のような書き方をすれば、そのランダムな数字を使った「難易度チェック」が作れます。\n\nもっと詳しく：実はコンピューターは本当のランダムが苦手です。複雑な計算を使ってランダムっぽく「見せかけて」います。これを疑似乱数（ぎじらんすう）と呼びます。`rand` が実際どういう仕組みで動いているのか、AI先生に聞いてみよう！さらに挑戦するなら——ダイスでぴったり20が出たら「クリティカルヒット」にできないかな？ 「運（Luck）」というステータスを作って、ダイスの結果にボーナスを足すこともできるかも？"
+power_prompts:
+  en:
+    - "How do I use `rand(1..20)` to simulate rolling a 20-sided dice?"
+    - "How can I use a random roll to decide if an attack hits or misses?"
+    - "Could you show me how to use `.sample` to randomly pick an item from an Array?"
+  ja:
+    - "`rand(1..20)` を使って20面ダイスを振るシミュレーションをする方法を教えて。"
+    - "ランダムなダイスの結果を使って、攻撃が命中したかミスしたか決める方法を教えて。"
+    - "`.sample` を使って配列からランダムにアイテムを選ぶ方法を教えて。"
+checks:
+  - type: source
+    pattern: '\brand\b|\.sample'
+    hint:
+      en: "I couldn't find `rand` or `.sample` anywhere. Your game needs a bit of chance in it! Ask your AI tutor: 'How do I use rand to add randomness to my game?'"
+      ja: "`rand` や `.sample` が見つかりませんでした。ゲームには少し「運」の要素が必要です！AI先生に聞いてみよう：「rand を使ってゲームにランダムな要素を加えるにはどうすればいい？」"
+  - type: run
+    stdin: "Hero\n12\n1\nquit\n"
+    expect: []
+    forbid: ['(NoMethodError|NameError|SyntaxError|TypeError|ArgumentError|RuntimeError|ZeroDivisionError)']
+    hint:
+      en: "I played through your game and it crashed. Random numbers are still numbers — make sure you're not accidentally comparing them to text, or using a range that doesn't make sense."
+      ja: "ゲームを動かしてみたらエラーが出ました。ランダムな数字もあくまで数字です——文字と比べてしまっていないか、範囲の指定がおかしくないか確認してみよう。"

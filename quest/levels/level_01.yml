@@ -1,0 +1,53 @@
+id: 1
+xp: 100
+title:
+  en: "The Magic Echo"
+  ja: "魔法のやまびこ"
+story:
+  en: "Your quest begins in total silence. No name, no voice, nothing — just a blank file waiting to become a world. Before your hero can do anything, your game needs to greet them and learn who they are. Legend says a true hero's fate is written the moment their name and age are known: from that instant, you can calculate the very year they'll become a 100-year-old legend."
+  ja: "君の冒険は、まだ何もない静けさの中から始まります。名前も声も、何もありません——ただの空っぽのファイルが、これから一つの世界に生まれ変わろうとしています。ヒーローが動き出す前に、まずはゲームがその人を出迎えて、名前を聞かなければなりません。伝説によると、名前と年齢がわかった瞬間に運命は決まるのだとか。そこから、そのヒーローが伝説の100歳になる西暦を計算できるのです。"
+task:
+  en:
+    - "Use `gets` to ask the player to type their name, and store it in a variable."
+    - "Use `gets` and `.to_i` to ask the player's age and convert it into a number."
+    - "Print a greeting that includes the player's name."
+    - "Calculate and print the 4-digit year the player will turn 100 years old."
+  ja:
+    - "`gets` を使って、プレイヤーに名前を入力してもらい、変数に保存しましょう。"
+    - "`gets` と `.to_i` を使って、プレイヤーに年齢を入力してもらい、数字に変換しましょう。"
+    - "プレイヤーの名前を含めた挨拶（あいさつ）を表示しましょう。"
+    - "そのプレイヤーが100歳になる西暦（4桁の数字）を計算して表示しましょう。"
+concepts:
+  en: "Look for `puts` (prints text to the screen), `gets` (waits for the player to type, usually paired with `.chomp` to remove the Enter key press), and `#{...}` (string interpolation — a way to drop a variable's value right inside a sentence).\n\nDeep dive: think of a variable like `name` or `age` as a small labeled box where the computer stores information. Ruby sees typed input as a String (text) even if it looks like a number — that's why `12` typed by the player is really the text \"12\". To do math with it, you need `.to_i` (\"to integer\") to convert it into a real number. Try asking what happens if you add two Strings together, or a String and a number without `.to_i` first!"
+  ja: "注目ポイントは `puts`（画面に文字を表示する）、`gets`（プレイヤーが入力するのを待つ命令。Enterキーの改行を消すために `.chomp` とセットで使うことが多い）、そして `#{...}`（文字列補間、文章の中に変数の値をそのまま入れ込む魔法の枠）です。\n\nもっと詳しく：`name` や `age` のような変数は、コンピューターが情報をしまっておく「小さな名札つきの箱」だと考えてください。プレイヤーが入力した文字は、たとえ数字に見えても、Rubyにとってはただの文字列（String）です。だから `12` と入力しても、それは文字の \"12\" にすぎません。計算するには `.to_i`（to integer = 整数に変換）を使って本物の数字に変えてあげる必要があります。文字列同士を足し算したらどうなるか、`.to_i` を使わずに文字と数字を足したらどうなるか、試してみよう！"
+power_prompts:
+  en:
+    - "How do I use `gets` to read what the player types, and why do people add `.chomp` after it?"
+    - "Can you explain how `.to_i` turns text into a number, and what happens if I forget to use it?"
+    - "How does `#{}` let me put a variable inside a sentence I print with `puts`?"
+  ja:
+    - "`gets` を使ってプレイヤーの入力を読み取る方法を教えて。あと、なぜみんな `.chomp` を後ろにつけるの？"
+    - "`.to_i` が文字を数字に変える仕組みを教えて。使い忘れたらどうなるの？"
+    - "`puts` で文章を表示するとき、`#{}` を使って変数を文の中に入れる方法を教えて。"
+checks:
+  - type: file_exists
+    hint:
+      en: "I can't find adventure.rb yet, or it's empty. Open it in your editor and write your first `puts` line to bring your world to life!"
+      ja: "adventure.rb がまだ見つからないか、中身が空っぽみたいです。エディタで開いて、まずは `puts` で何か表示するところから始めてみよう！"
+  - type: source
+    pattern: 'gets'
+    hint:
+      en: "I couldn't find `gets` in your code. That's the command that pauses your game and waits for the player to type something. Ask your AI tutor: 'How do I use gets to read player input?'"
+      ja: "コードの中に `gets` が見つかりませんでした。これはプレイヤーが何か入力するのを待つための命令です。AI先生に聞いてみよう：「gets を使ってプレイヤーの入力を読み取るにはどうすればいい？」"
+  - type: source
+    pattern: 'to_i'
+    hint:
+      en: "I couldn't find `.to_i` anywhere. You'll need it to turn the age the player types (which is text!) into a real number so you can do math with it. Ask your AI tutor about `.to_i`!"
+      ja: "`.to_i` が見つかりませんでした。プレイヤーが入力した年齢はただの文字なので、計算するには数字に変換する必要があります。AI先生に `.to_i` について聞いてみよう！"
+  - type: run
+    stdin: "Hero\n12\n"
+    expect: ['Hero', '\d{4}']
+    forbid: ['(NoMethodError|NameError|SyntaxError|TypeError|ArgumentError|RuntimeError|ZeroDivisionError)']
+    hint:
+      en: "When I ran your game with the name 'Hero' and age 12, I didn't see the name printed back, or the 4-digit year Hero turns 100 was missing (or your program crashed). Make sure you print the player's name and calculate 100 - age, then add that to the current year."
+      ja: "'Hero' という名前と年齢12でゲームを動かしてみたところ、名前が表示されなかったり、Heroが100歳になる西暦（4桁の数字）が見つかりませんでした（またはエラーで止まってしまいました）。プレイヤーの名前を表示して、今の年に (100 - 年齢) を足す計算をしてみよう。"

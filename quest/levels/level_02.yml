@@ -1,0 +1,42 @@
+id: 2
+xp: 100
+title:
+  en: "Making Choices"
+  ja: "運命の選択"
+story:
+  en: "A true hero doesn't just talk — they decide. Your game now needs a fork in the road: a moment where the player picks a path, a weapon, or a spell, and the story bends around their choice. But choices are only fun if nothing breaks — no matter what the player picks, your game must handle it gracefully."
+  ja: "本物のヒーローは、ただ喋るだけでは終わりません——選ぶのです。ここからは、プレイヤーが道や武器、呪文を選び、その選択によって物語が変わる「分かれ道」を作りましょう。ただし、選択が楽しいのは、何を選んでもゲームが壊れないときだけ。プレイヤーが何を選んでも、ちゃんと対応できるようにしましょう。"
+task:
+  en:
+    - "Print a numbered menu of choices for the player (for example, a weapon, path, or action)."
+    - "Read the player's choice with `gets` and use `if`/`elsif`/`else` (or `case`) to react differently depending on what they picked."
+    - "Make sure every possible choice — including an unexpected one — leads to some printed response, without crashing."
+  ja:
+    - "プレイヤーに番号つきの選択肢（例えば武器、道、行動など）を表示しましょう。"
+    - "`gets` でプレイヤーの選択を読み取り、`if`/`elsif`/`else`（または `case`）を使って選択ごとに違う反応を返しましょう。"
+    - "どんな選択（想定外の入力も含む）をしても、エラーで止まらずに何かしらのメッセージが表示されるようにしましょう。"
+concepts:
+  en: "Look for `if`, `elsif`, `else` — the 'rules' of your game — and `==`, which checks whether two things are exactly equal (not to be confused with `=`, which assigns a value). A `case`/`when` statement is another clean way to handle many choices at once.\n\nDeep dive: `elsif` is short for 'else if' — it lets you check condition after condition until one matches. Ask your AI tutor why Ruby needs two equals signs (`==`) to compare, instead of one (`=`). Also think about capital letters: does your game treat 'Sword' and 'sword' as the same thing? If not, ask about `.downcase`!"
+  ja: "注目ポイントは `if`、`elsif`、`else` ——ゲームの「ルール」を決める部分です。それから `==`（2つのものが完全に同じかどうかを確認する記号。`=` は値を代入するための記号なので混同しないように！）。`case`/`when` を使うと、たくさんの選択肢をスッキリ書くこともできます。\n\nもっと詳しく：`elsif` は「そうでなければ、もし〜なら」という意味で、条件を順番にチェックしていきます。なぜRubyでは比べるときにイコールを2つ（`==`）使うのか、1つ（`=`）ではダメなのか、AI先生に聞いてみよう。あと、大文字と小文字も考えてみて——君のゲームは 'Sword' と 'sword' を同じものとして扱ってる？ もし違うなら `.downcase` について聞いてみよう！"
+power_prompts:
+  en:
+    - "How do I use `elsif` to handle more than two choices in my game?"
+    - "Why does Ruby use `==` to compare things instead of `=`?"
+    - "How can I make my code ignore capital letters, so 'Sword' and 'sword' both work the same way?"
+  ja:
+    - "ゲームで3つ以上の選択肢を扱うために `elsif` を使う方法を教えて。"
+    - "Rubyではなぜ比べるときに `=` じゃなくて `==` を使うの？"
+    - "大文字と小文字を区別せず、'Sword' でも 'sword' でも同じように動くようにするにはどうすればいい？"
+checks:
+  - type: source
+    pattern: '\bif\b|\bcase\b'
+    hint:
+      en: "I couldn't find an `if` or `case` statement. Your game needs to react differently depending on what the player picks. Ask your AI tutor: 'How do I use if/elsif/else to handle a player's choice?'"
+      ja: "`if` や `case` が見つかりませんでした。プレイヤーが選んだ内容によって、ゲームの反応を変える必要があります。AI先生に聞いてみよう：「プレイヤーの選択によって反応を変えるには if/elsif/else をどう使えばいい？」"
+  - type: run
+    stdin: "Hero\n12\n1\n"
+    expect: []
+    forbid: ['(NoMethodError|NameError|SyntaxError|TypeError|ArgumentError|RuntimeError|ZeroDivisionError)']
+    hint:
+      en: "I ran your game as 'Hero', age 12, choosing option 1 — and it crashed or produced an error. Make sure every branch of your `if`/`case` prints something and doesn't call a method that doesn't exist."
+      ja: "'Hero'、年齢12、選択肢「1」でゲームを動かしてみたら、エラーで止まってしまいました。`if` や `case` のどの分岐でも、ちゃんと何かが表示されて、存在しないメソッドを呼び出していないか確認してみよう。"
