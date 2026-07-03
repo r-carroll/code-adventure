@@ -22,7 +22,7 @@ end
 # --- Intro ---
 display_header("CODE ADVENTURE")
 print "Enter your hero name: "
-player_name = gets.chomp
+player_name = gets.to_s.chomp
 puts "Welcome, #{player_name}! Your journey begins."
 
 # --- Main Game Loop ---
@@ -30,9 +30,9 @@ loop do
   display_header("MAP")
   puts "1. Explore the Forest 🌲"
   puts "2. Check Backpack 🎒"
-  puts "3. Save and Quit 💾"
+  puts "3. Save and Quit 💾 (or type 'quit')"
   print "What do you want to do? "
-  choice = gets.chomp
+  choice = gets.to_s.chomp.downcase
 
   case choice
   when "1"
@@ -62,7 +62,7 @@ loop do
     end
     puts "Total health: #{game_state[:health]}"
 
-  when "3"
+  when "3", "quit", "save"
     save_game(player_name, game_state[:health], inventory)
     puts "Thanks for playing, #{player_name}! Goodbye."
     break

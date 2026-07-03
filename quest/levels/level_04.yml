@@ -1,0 +1,42 @@
+id: 4
+xp: 150
+title:
+  en: "Organizing with Methods"
+  ja: "メソッドでスッキリ整理"
+story:
+  en: "Your game is growing — and growing code can turn into a tangled mess if you let it. Real adventurers organize their skills into a toolkit; real programmers organize their code into methods. Break your game into at least two named moves you can call whenever you need them, like a scene-setter and an action."
+  ja: "君のゲームはどんどん大きくなってきています——そのまま放っておくと、コードはすぐにごちゃごちゃの迷路になってしまいます。本物の冒険者が自分のスキルを整理して道具箱にまとめるように、プログラマーもコードを「メソッド」として整理します。少なくとも2つの名前付きの技（例えば、場面を表示する技と、行動を起こす技）を作って、呼び出せるようにしましょう。"
+task:
+  en:
+    - "Create at least two methods with `def` (for example, one that prints a scene or header, and one that performs an action)."
+    - "Give at least one method the ability to receive information via an argument (for example, an amount of damage or healing)."
+    - "Call both methods somewhere in your game so they actually run."
+  ja:
+    - "`def` を使って、少なくとも2つのメソッドを作りましょう（例えば、場面やヘッダーを表示するメソッドと、何かの行動を行うメソッド）。"
+    - "少なくとも1つのメソッドには、引数（ひきすう）で情報を受け取れるようにしましょう（例えば、ダメージ量や回復量など）。"
+    - "作った2つのメソッドを、ゲームのどこかで実際に呼び出しましょう。"
+concepts:
+  en: "Look for `def name_of_method` — this is how you 'define' a new skill — and the matching `end` that shows where it stops. Methods can take arguments, like `damage_player(amount)`, where `amount` is a specific value being handed in.\n\nDeep dive: a Return Value is what a method sends back after it runs — like a scout coming back from a mission with a report. Your code can use that report to decide what happens next (for example, checking if HP dropped to 0). Ask your AI tutor why programmers split code into methods instead of writing one giant list of instructions!"
+  ja: "注目ポイントは `def メソッド名`（新しい「技」を定義する命令）と、それに対応する `end`（技の終わりを示す）です。メソッドは `damage_player(amount)` のように引数（ひきすう）を受け取ることもできます。この `amount` が渡される具体的な値です。\n\nもっと詳しく：戻り値（Return Value）とは、メソッドが実行を終えたあとに送り返す答えのことです。偵察部隊がミッションから報告書を持って帰ってくるようなイメージです。その報告を使って、次に何をするか（例えばHPが0になったかどうか）を判断できます。なぜプログラマーは、1つの長いコードを書かずにメソッドへ分けるのか、AI先生に聞いてみよう！"
+power_prompts:
+  en:
+    - "Can you show me how to pass information into a method, like a `damage_player(amount)` method that subtracts `amount` from my HP?"
+    - "What is a return value, and how can I use one to check if the player is still alive?"
+    - "Why do programmers split code into methods instead of writing one giant block?"
+  ja:
+    - "`damage_player(amount)` のようなメソッドを作って、`amount` の分だけHPを減らす方法を教えて。メソッドに情報を渡すやり方が知りたい。"
+    - "戻り値（Return Value）って何？ それを使ってプレイヤーがまだ生きているか確認する方法を教えて。"
+    - "プログラマーはなぜ1つの長いコードを書かずに、メソッドに分けるの？"
+checks:
+  - type: source
+    pattern: 'def \w+[\s\S]*def \w+'
+    hint:
+      en: "I could only find one `def` (or none) — I'm looking for at least two separate methods in your code. Ask your AI tutor: 'How do I organize my game into methods?'"
+      ja: "`def` が1つしか（または全く）見つかりませんでした。少なくとも2つの別々のメソッドが必要です。AI先生に聞いてみよう：「ゲームをメソッドに整理するにはどうすればいい？」"
+  - type: run
+    stdin: "Hero\n12\n1\nquit\n"
+    expect: []
+    forbid: ['(NoMethodError|NameError|SyntaxError|TypeError|ArgumentError|RuntimeError|ZeroDivisionError)']
+    hint:
+      en: "I played through your game and something crashed. Check that both your methods are defined correctly (with matching `end`s) and called the way you defined them."
+      ja: "ゲームを実際に動かしてみたら、エラーが出てしまいました。2つのメソッドがどちらもきちんと定義されていて（`end` を忘れずに）、定義した通りに呼び出されているか確認してみよう。"

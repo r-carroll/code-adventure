@@ -1,82 +1,137 @@
-# Welcome to Code Adventure! 🚀
+🇯🇵 [日本語版](./README_JA.md) ・ 🇬🇧 English
 
-Hello! You are about to start a journey where you will learn how to build your very own video game using **Ruby** (a coding language) and **Gemini CLI** (your AI coding partner).
+# Code Adventure 🚀
+
+Welcome, adventurer! You're about to build your very own text adventure game — with an AI tutor by your side to help you learn **Ruby** (a real coding language) one small step at a time.
+
+No experience needed. No terminal experience needed. Just curiosity.
+
+---
+
+## ⚡ Fastest Start: GitHub Codespaces
+
+The easiest way to start — no installing anything on your own computer.
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/r-carroll/code-adventure)
+
+1. Click the green button above.
+2. Wait a minute or two while your adventure loads in the cloud. ☁️
+3. When it's ready, look at the bottom of the screen for a panel called **Terminal**. Click into it.
+4. Type this and press **Enter**:
+   ```
+   ruby quest.rb
+   ```
+5. Your quest begins! 🎉
+
+That's it. Your AI coding tutor is already built in and ready to help — more on that below.
+
+---
+
+<details>
+<summary>🛠 Prefer to run it on your own computer? Click here for local setup</summary>
+
+### 1. Get the code
+- Go to the [Code Adventure page on GitHub](https://github.com/r-carroll/code-adventure).
+- Click the green **"<> Code"** button, then **"Download ZIP"**.
+- Unzip it and move the folder somewhere easy to find, like your Desktop.
+
+> **Know Git already?** `git clone https://github.com/r-carroll/code-adventure.git`
+
+### 2. Install Ruby
+- **Windows:** Get **Ruby+Devkit 3.3.x (x64)** from [RubyInstaller.org](https://rubyinstaller.org/). Click "Next" through the installer.
+- **Mac:** Open Terminal and run `brew install ruby` (needs [Homebrew](https://brew.sh)).
+
+### 3. Install an AI coding CLI
+Pick one — you only need one:
+- [Gemini CLI](https://geminicli.com)
+- [Claude Code](https://claude.com/claude-code)
+
+Nice part: you don't need to paste any instructions to "train" it. This repo already contains `GEMINI.md` and `CLAUDE.md` — whichever tool you use loads its tutor rules automatically the moment you run it in this folder. Your AI already knows how to be a good teacher for this project.
+
+### 4. Open a terminal
+- **Windows:** Press the Windows key, type `PowerShell`, press Enter.
+- **Mac:** Open the **Terminal** app (search for it with Spotlight).
+- Type `cd ` (with a space), then drag your `code-adventure` folder into the window, then press Enter.
+
+### 5. Start your quest
+```
+ruby quest.rb
+```
+
+</details>
+
+---
+
+## 🔁 How It Works: The Loop
+
+Every level follows the same simple loop:
+
+1. **Run** `ruby quest.rb` — it shows you the story, your task, and the coding concepts you'll need.
+2. **Edit** `adventure.rb` — this is *your* game file. You add code to it, one level at a time.
+3. **Check** your work with `ruby quest.rb check` — it tells you exactly what's missing, with a friendly hint (never the answer).
+4. **Level up!** ✅ Pass the check and you earn XP, a new rank, and a peek at what's next.
+
+You grow **one file** — `adventure.rb` — across all 10 levels. By the end, it's a whole game you built yourself.
+
+### Commands
+
+| Command | What it does |
+|---|---|
+| `ruby quest.rb` | Show your progress map and the current level's story + task |
+| `ruby quest.rb check` | Test your `adventure.rb` against the current level's requirements |
+| `ruby quest.rb map` | Show just your progress map (levels done, current, locked) and rank |
+| `ruby quest.rb lang` | Switch between English and 日本語 |
+| `ruby quest.rb reset` | Start your progress over (your `adventure.rb` code is never touched) |
 
 ---
 
 ## 🐢 A Note on Pacing
-Learning to code is like learning a musical instrument or a new sport—it takes time! 
-- **No Rush:** You don't have to finish this in one day. 
-- **One Level at a Time:** It is perfectly okay to do just one level per day or even one per week. 
-- **Follow Your Curiosity:** If you are having fun, you can do as many levels as you want! 
-The most important thing is that you understand **why** the code works before you move to the next step.
+
+Learning to code is like learning an instrument or a new sport — it takes time!
+
+- **No rush.** You don't have to finish this in one day.
+- **One level at a time.** A level a day, or a level a week — both are perfectly fine.
+- **Follow your curiosity.** Having fun? Do as many levels as you like!
+
+The most important thing is understanding **why** your code works before moving to the next level. Speed doesn't matter here.
 
 ---
 
-## 🛠 Step 1: Prepare Your Tools
-Before we start coding, we need to set up your "blacksmith shop" (your computer).
+## 🎓 The Golden Rule
 
-### 0. Get the Adventure (Download the Code)
-You need to copy these files to your own computer first!
-1. Go to the main [Code Adventure page on GitHub](https://github.com/r-carroll/code-adventure).
-2. Look for the green **"<> Code"** button near the top right of the file list.
-3. Click it and choose **"Download ZIP"**.
-4. Once it's downloaded, find the file (usually in your "Downloads" folder) and **"Extract All"** or **"Unzip"** it.
-5. Move the new folder to your **Desktop** so it's easy to find later.
+**Your AI is a tutor, not a builder.**
 
-> **Pro Tip:** If you already know how to use Git, you can type `git clone https://github.com/r-carroll/code-adventure.git` in your terminal instead!
+Don't ask it to "build the whole game" — if you do that, the AI learns, but *you* don't. Your tutor already knows this rule (it's built into `GEMINI.md`/`CLAUDE.md`), and it will gently push back and break things into small steps if you ask for too much at once.
 
-### 1. Install Ruby
-Ruby is the language we will use to talk to the computer.
-- **Windows:** Go to [RubyInstaller.org](https://rubyinstaller.org/) and download the **Ruby+Devkit 3.3.x (x64)** version. Run the installer and just click "Next" on everything!
-- **Mac:** Open your "Terminal" and type `brew install ruby` (if you have Homebrew).
+Instead, try **Power Prompts** like these:
+- *"I want the player to pick a weapon from a list. How do I do that in Ruby, and what does `gets` actually do?"*
+- *"Why did you suggest an `if` statement here instead of something else? What happens if I change it?"*
+- *"I got an error I don't understand — can you explain what it means before telling me how to fix it?"*
 
-### 2. Install VS Code
-This is where you will see and write your code.
-- Download it here: [code.visualstudio.com](https://code.visualstudio.com/)
-- **Important:** Once installed, open VS Code, press `Ctrl+Shift+P`, type "shell command", and click **"Shell Command: Install 'code' command in PATH"**. This lets you open files by typing `code` in your terminal!
-
-### 3. Install Gemini CLI
-This is your AI partner. It will help you write code and explain it to you.
-- Download and install it here: [geminicli.com](https://geminicli.com)
-
-### 4. How to open your "Terminal"
-The terminal is a text-only window where you type commands.
-1. Press the **Windows Key** on your keyboard.
-2. Type `cmd` or `PowerShell` and press **Enter**.
-3. You should see a black or blue window. This is where the magic happens!
-4. To go to your project folder, type `cd ` (with a space) and then drag your `code-adventure` folder into the window, then press **Enter**.
+Every level's story screen also suggests a few power prompts to get you started.
 
 ---
 
-## 🗺 Your Mission: The Text Adventure
-We aren't just making a game; we are learning how to build worlds. You can choose any theme you like:
-- 🗡 **Samurai Quest:** A ronin looking for a lost sword in ancient Japan.
-- 🤖 **Gundam Pilot:** You are the last hope for a space colony.
-- 🧙 **Wizard's Tower:** Escape a magical prison using logic and spells.
+## 💡 Troubleshooting
 
-## 🎓 How to Learn (The Golden Rule)
-Don't just ask the AI to "Build the game." If you do that, the AI learns, but **you don't.**
+Stuck, or see a scary red error message?
 
-Instead, use these **Power Prompts**:
-1. *"I want to make a game where the player picks a weapon. Can you show me how to do that in Ruby and explain how the `gets` command works?"*
-2. *"Why did you use an `if` statement there? What happens if I change it?"*
+1. **Don't panic.** Errors just mean the computer is confused — they're normal, even for professionals.
+2. **Copy the whole error message.**
+3. **Ask your AI tutor:** paste the error and ask *"What does this error mean, and what should I look at first?"*
+4. Run `ruby quest.rb check` again anytime — its hints are there to help you find the fix yourself.
 
 ---
 
-## 💡 Troubleshooting & Help
-If you get stuck or see a scary error message in your terminal:
-1. **Don't Panic!** Errors are just the computer's way of saying it's confused.
-2. **Copy the Error:** Copy the whole error message (it usually starts with `Traceback` or `error`).
-3. **Ask Gemini:** Paste the error to Gemini and ask: *"I got this error in my Ruby code. Can you explain what it means and how I can fix it?"*
+## 🏆 Want to See a Finished Example?
 
-## 🏆 Completed Example
-If you want to see what a finished game looks like, check out [adventure_sample.rb](./adventure_sample.rb). You can run it by typing `ruby adventure_sample.rb` in your terminal!
+Check out [`adventure_sample.rb`](./adventure_sample.rb) — a completed Level 10 game. Run it with:
+```
+ruby adventure_sample.rb
+```
 
 ---
 
-## 🚦 Ready? Let's Go!
-To start your journey, open your terminal in this folder and simply type:
-`gemini "Hello!"`
+## 🚦 Ready?
 
-Your AI partner will guide you from there!
+Run `ruby quest.rb` and start your adventure!

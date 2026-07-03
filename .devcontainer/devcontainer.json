@@ -1,0 +1,14 @@
+{
+  "name": "Code Adventure",
+  "image": "mcr.microsoft.com/devcontainers/ruby:1-3.3-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["Shopify.ruby-lsp"]
+    }
+  },
+  "postCreateCommand": "npm install -g @anthropic-ai/claude-code @google/gemini-cli",
+  "postAttachCommand": "echo '===================================='; echo 'Welcome to Code Adventure!'; echo 'ようこそ、コード・アドベンチャーへ!'; echo '===================================='; echo ''; echo 'Your AI tutor is ready! Type `claude` or `gemini` to start chatting.'; echo 'AI先生の準備ができました！ `claude` か `gemini` と入力して話しかけてみよう。'; echo ''; echo 'To begin your quest, run:'; echo '  ruby quest.rb'; echo ''; echo 'クエストを始めるには、実行してください:'; echo '  ruby quest.rb'"
+}

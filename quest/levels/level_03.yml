@@ -1,0 +1,47 @@
+id: 3
+xp: 150
+title:
+  en: "The Infinite Loop"
+  ja: "終わらない冒険"
+story:
+  en: "Right now your game says its piece and ends — like a single page torn from a book. Real adventures keep going: explore, fight, decide, again and again, until the hero wins, loses, or simply chooses to leave. It's time to wrap your whole game in a loop that only ends when the player types the secret word: `quit`."
+  ja: "今の君のゲームは、一言喋ったら終わってしまいます——まるで本から一枚だけ破り取ったページのように。本当の冒険は、探索して、戦って、決断して……それを何度も繰り返し、ヒーローが勝つか負けるか、あるいは自分から立ち去るまで続くものです。ゲーム全体をループで包み込み、プレイヤーが合言葉「quit」と入力したときだけ終わるようにしましょう。"
+task:
+  en:
+    - "Wrap your game's main flow in a loop (using `loop do` or `while`/`until`) so it keeps running instead of ending after one pass."
+    - "Let the player type `quit` at any point to politely exit the loop using `break` (or `exit`)."
+    - "Make sure the loop doesn't run forever by accident — test that typing `quit` actually ends the game."
+  ja:
+    - "`loop do` や `while`/`until` を使って、ゲームのメイン部分をループで包み、一回で終わらずに繰り返し続くようにしましょう。"
+    - "プレイヤーがいつでも `quit` と入力したら、`break`（または `exit`）を使って、ループを丁寧に終了できるようにしましょう。"
+    - "ループが誤って永遠に終わらないように、`quit` と入力したら本当にゲームが終わることを確認しましょう。"
+concepts:
+  en: "Look for `loop do` or `while`/`until` — these tell the computer to repeat a block of code — and `break`, the 'emergency exit' that stops a loop from the inside.\n\nDeep dive: a condition like `input == 'quit'` is either true or false — this is called a Boolean. You can combine conditions with `&&` (AND) and `||` (OR) to build more complex rules, like 'keep looping while HP is above 0 AND the player hasn't quit.' If you ever get stuck in a loop that won't stop, you can always press `Ctrl + C` in the terminal to force it closed!"
+  ja: "注目ポイントは `loop do` や `while`/`until`（コードのかたまりを繰り返す命令）と、`break`（ループの中から抜け出す「非常出口」）です。\n\nもっと詳しく：`input == 'quit'` のような条件は、正しい（true）か正しくない（false）かのどちらかになります。これを真偽値（Boolean）と呼びます。`&&`（かつ）や `||`（または）を組み合わせれば、「HPが0より上、かつプレイヤーがまだやめていない間はループを続ける」といった複雑なルールも作れます。もしループが止まらなくなってしまったら、ターミナルで `Ctrl + C` を押せばいつでも強制終了できるから安心してね！"
+power_prompts:
+  en:
+    - "Can you show me how to wrap my whole game in a loop that only stops when the player types 'quit'?"
+    - "What's the difference between `loop do...break` and `while condition...end`?"
+    - "How do I combine two conditions with `&&` or `||` to decide when my loop should stop?"
+  ja:
+    - "ゲーム全体を、プレイヤーが 'quit' と入力したときだけ終わるループで包む方法を教えて。"
+    - "`loop do...break` と `while 条件...end` の違いは何？"
+    - "`&&` や `||` を使って2つの条件を組み合わせ、ループが止まるタイミングを決める方法を教えて。"
+checks:
+  - type: source
+    pattern: 'loop do|while|until'
+    hint:
+      en: "I couldn't find a loop in your code — `loop do`, `while`, or `until`. Your game needs to keep going instead of stopping after one round. Ask your AI tutor about loops in Ruby!"
+      ja: "コードの中にループ（`loop do`、`while`、`until`）が見つかりませんでした。ゲームは一回で終わらず、繰り返し続く必要があります。AI先生にRubyのループについて聞いてみよう！"
+  - type: source
+    pattern: 'break|exit'
+    hint:
+      en: "I couldn't find `break` or `exit`. Without one of these, your loop has no way to end when the player types 'quit'. Ask your AI tutor how to escape a loop!"
+      ja: "`break` や `exit` が見つかりませんでした。これがないと、プレイヤーが 'quit' と入力してもループが終わりません。AI先生にループから抜け出す方法を聞いてみよう！"
+  - type: run
+    stdin: "Hero\n12\n1\nquit\n"
+    expect: []
+    forbid: ['(NoMethodError|NameError|SyntaxError|TypeError|ArgumentError|RuntimeError|ZeroDivisionError)']
+    hint:
+      en: "I played through your game as 'Hero', age 12, picking option 1, then typing 'quit' — and something crashed. Make sure your loop and your quit handling work together without errors."
+      ja: "'Hero'、年齢12、選択肢「1」を選んで最後に 'quit' と入力してプレイしてみたところ、エラーが出てしまいました。ループと 'quit' の処理がうまく組み合わさっているか確認してみよう。"
