@@ -12,9 +12,9 @@
 
 自分のパソコンに何もインストールせずに始められる、一番かんたんな方法です。
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/r-carroll/code-adventure)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/r-carroll/code-adventure) [![Resume Codespace](https://img.shields.io/badge/Resume_Codespace-238636?style=for-the-badge&logo=github)](https://github.com/codespaces)
 
-1. 上の緑色のボタンをクリックします。
+1. **初めての人：**「Open in GitHub Codespaces」をクリックします。**続きから遊ぶ人：**「Resume Codespace」をクリックします。（ヒント：このページを開いたままにするには、**Cmd+クリック** か **Ctrl+クリック** を使って新しいタブで開いてね！）
 2. 1〜2分待ちます。クラウド上に君の冒険の舞台が準備されます。☁️
 3. 準備ができたら、画面の下のほうにある **「ターミナル (Terminal)」** というパネルをクリックします。
 4. 次のように入力して、Enterキーを押します。
@@ -23,7 +23,7 @@
    ```
 5. これで冒険のスタートです！🎉
 
-たったこれだけ。この Codespace には、AIの先生（`claude` と `agy`）がもうインストールされていて、いつでも助けてくれる準備ができています。実際に話しかける方法は、下の **[AI先生を開いてみよう](#-ai先生を開いてみよう)** を見てね。
+たったこれだけ。この Codespace には、AIの先生（`claude` と `agy`）がもうインストールされていて、いつでも助けてくれる準備ができています。実際に話しかける方法は、下の **AI先生を開いてみよう** を見てね。
 
 ---
 
@@ -32,7 +32,7 @@
 
 ### 1. コードを手に入れよう
 - [GitHubのCode Adventureページ](https://github.com/r-carroll/code-adventure) にアクセスします。
-- 緑色の **「<> Code」** ボタンをクリックし、 **「Download ZIP」** を選びます。
+- **「<> Code」** ボタンをクリックし、 **「Download ZIP」** を選びます。
 - ダウンロードしたファイルを解凍して、デスクトップなど見つけやすい場所に置きます。
 
 > **Gitを知っている人は：** `git clone https://github.com/r-carroll/code-adventure.git` でもOKです。
@@ -49,7 +49,7 @@
 うれしいポイント：AIに「教育」のための文章をコピー＆ペーストする必要はありません。このリポジトリにはすでに `AGENTS.md` と `CLAUDE.md` が入っていて、このフォルダの中でツールを起動すると、先生としてのルールが自動的に読み込まれます。君のAIは、最初からこのプロジェクトの良い先生になる準備ができているのです。
 
 ### 4. ターミナルを開こう
-- **Windows:** Windowsキーを押して `PowerShell` と入力し、Enterを押します。
+- **Windows:** Windowsキーを押して `cmd` と入力し、Enterを押します。
 - **Mac:** Spotlight検索で「ターミナル」と入力して開きます。
 - `cd `（半角スペースも忘れずに）と入力してから、`code-adventure` フォルダをそのウィンドウにドラッグ＆ドロップし、Enterを押します。
 
@@ -58,7 +58,7 @@
 ruby quest.rb
 ```
 
-次は、下の **[AI先生を開いてみよう](#-ai先生を開いてみよう)** を見てみましょう。AI先生と実際にチャットを始める方法がわかります。
+次は、下の **AI先生を開いてみよう** を見てみましょう。AI先生と実際にチャットを始める方法がわかります。
 
 </details>
 

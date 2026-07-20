@@ -12,9 +12,9 @@ No experience needed. No terminal experience needed. Just curiosity.
 
 The easiest way to start — no installing anything on your own computer.
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/r-carroll/code-adventure)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/r-carroll/code-adventure) [![Resume Codespace](https://img.shields.io/badge/Resume_Codespace-238636?style=for-the-badge&logo=github)](https://github.com/codespaces)
 
-1. Click the green button above.
+1. **First time?** Click **Open in GitHub Codespaces**. **Returning?** Click **Resume Codespace**. *(Tip: **Cmd+Click** or **Ctrl+Click** to open in a new tab!)*
 2. Wait a minute or two while your adventure loads in the cloud. ☁️
 3. When it's ready, look at the bottom of the screen for a panel called **Terminal**. Click into it.
 4. Type this and press **Enter**:
@@ -23,7 +23,7 @@ The easiest way to start — no installing anything on your own computer.
    ```
 5. Your quest begins! 🎉
 
-That's it. Your AI coding tutor (`claude` and `agy`) is already installed and waiting for you in this Codespace — jump to **[Opening Your AI Tutor](#-opening-your-ai-tutor)** below to start chatting with it.
+That's it. Your AI coding tutor (`claude` and `agy`) is already installed and waiting for you in this Codespace — jump to **Opening Your AI Tutor** below to start chatting with it.
 
 ---
 
@@ -32,7 +32,7 @@ That's it. Your AI coding tutor (`claude` and `agy`) is already installed and wa
 
 ### 1. Get the code
 - Go to the [Code Adventure page on GitHub](https://github.com/r-carroll/code-adventure).
-- Click the green **"<> Code"** button, then **"Download ZIP"**.
+- Click the **"<> Code"** button, then **"Download ZIP"**.
 - Unzip it and move the folder somewhere easy to find, like your Desktop.
 
 > **Know Git already?** `git clone https://github.com/r-carroll/code-adventure.git`
@@ -49,7 +49,7 @@ Pick one — you only need one:
 Nice part: you don't need to paste any instructions to "train" it. This repo already contains `AGENTS.md` and `CLAUDE.md` — whichever tool you use loads its tutor rules automatically the moment you run it in this folder. Your AI already knows how to be a good teacher for this project.
 
 ### 4. Open a terminal
-- **Windows:** Press the Windows key, type `PowerShell`, press Enter.
+- **Windows:** Press the Windows key, type `cmd`, press Enter.
 - **Mac:** Open the **Terminal** app (search for it with Spotlight).
 - Type `cd ` (with a space), then drag your `code-adventure` folder into the window, then press Enter.
 
@@ -58,7 +58,7 @@ Nice part: you don't need to paste any instructions to "train" it. This repo alr
 ruby quest.rb
 ```
 
-Next, check out **[Opening Your AI Tutor](#-opening-your-ai-tutor)** below — it walks you through actually starting a chat with your coding partner.
+Next, check out **Opening Your AI Tutor** below — it walks you through actually starting a chat with your coding partner.
 
 </details>
 
