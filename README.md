@@ -116,6 +116,7 @@ You grow **one file** — `adventure.rb` — across all 10 levels. By the end, i
 
 | Command | What it does |
 |---|---|
+| `ruby adventure.rb` | Play your game! Run this anytime to try out what you've built |
 | `ruby quest.rb` | Show your progress map and the current level's story + task |
 | `ruby quest.rb check` | Test your `adventure.rb` against the current level's requirements |
 | `ruby quest.rb map` | Show just your progress map (levels done, current, locked) and rank |

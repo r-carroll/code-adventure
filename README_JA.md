@@ -116,6 +116,7 @@ ruby quest.rb
 
 | コマンド | できること |
 |---|---|
+| `ruby adventure.rb` | 自分のゲームで遊ぶ！ いつでも実行して、作ったものを試せます |
 | `ruby quest.rb` | 進み具合のマップと、今のレベルの物語・やるべきことを表示する |
 | `ruby quest.rb check` | 今のレベルの条件に合っているか `adventure.rb` をチェックする |
 | `ruby quest.rb map` | 進み具合のマップだけを表示する（クリア済み・現在地・未開放・称号） |

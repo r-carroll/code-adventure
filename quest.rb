@@ -318,6 +318,8 @@ class QuestEngine
       # a little more to it, right here.
       # このファイルがあなたの冒険ゲームです。レベルが進むたびに、ここへ
       # 少しずつコードを追加していきます。
+      # To play your game, run: `ruby adventure.rb`
+      # ゲームを遊ぶには： `ruby adventure.rb` を実行してね。
       #
       # Run `ruby quest.rb` to see your quest, `ruby quest.rb check` to test it.
       # `ruby quest.rb` でクエスト画面、`ruby quest.rb check` でチェックができます。
