@@ -1,42 +1,47 @@
 id: 4
 xp: 150
 title:
-  en: "Organizing with Methods"
-  ja: "メソッドでスッキリ整理"
+  en: "The Infinite Loop"
+  ja: "終わらない冒険"
 story:
-  en: "Your game is growing — and growing code can turn into a tangled mess if you let it. Real adventurers organize their skills into a toolkit; real programmers organize their code into methods. Break your game into at least two named moves you can call whenever you need them, like a scene-setter and an action."
-  ja: "君のゲームはどんどん大きくなってきています——そのまま放っておくと、コードはすぐにごちゃごちゃの迷路になってしまいます。本物の冒険者が自分のスキルを整理して道具箱にまとめるように、プログラマーもコードを「メソッド」として整理します。少なくとも2つの名前付きの技（例えば、場面を表示する技と、行動を起こす技）を作って、呼び出せるようにしましょう。"
+  en: "Right now your game says its piece and ends — like a single page torn from a book. Real adventures keep going: explore, fight, decide, again and again, until the hero wins, loses, or simply chooses to leave. It's time to wrap your whole game in a loop that only ends when the player types the secret word: `quit`."
+  ja: "今の君のゲームは、一言喋ったら終わってしまいます——まるで本から一枚だけ破り取ったページのように。本当の冒険は、探索して、戦って、決断して……それを何度も繰り返し、ヒーローが勝つか負けるか、あるいは自分から立ち去るまで続くものです。ゲーム全体をループで包み込み、プレイヤーが合言葉「quit」と入力したときだけ終わるようにしましょう。"
 task:
   en:
-    - "Create at least two methods with `def` (for example, one that prints a scene or header, and one that performs an action)."
-    - "Give at least one method the ability to receive information via an argument (for example, an amount of damage or healing)."
-    - "Call both methods somewhere in your game so they actually run."
+    - "Wrap your game's main flow in a loop (using `loop do` or `while`/`until`) so it keeps running instead of ending after one pass."
+    - "Let the player type `quit` at any point to politely exit the loop using `break` (or `exit`)."
+    - "Make sure the loop doesn't run forever by accident — test that typing `quit` actually ends the game."
   ja:
-    - "`def` を使って、少なくとも2つのメソッドを作りましょう（例えば、場面やヘッダーを表示するメソッドと、何かの行動を行うメソッド）。"
-    - "少なくとも1つのメソッドには、引数（ひきすう）で情報を受け取れるようにしましょう（例えば、ダメージ量や回復量など）。"
-    - "作った2つのメソッドを、ゲームのどこかで実際に呼び出しましょう。"
+    - "`loop do` や `while`/`until` を使って、ゲームのメイン部分をループで包み、一回で終わらずに繰り返し続くようにしましょう。"
+    - "プレイヤーがいつでも `quit` と入力したら、`break`（または `exit`）を使って、ループを丁寧に終了できるようにしましょう。"
+    - "ループが誤って永遠に終わらないように、`quit` と入力したら本当にゲームが終わることを確認しましょう。"
 concepts:
-  en: "Look for `def name_of_method` — this is how you 'define' a new skill — and the matching `end` that shows where it stops. Methods can take arguments, like `damage_player(amount)`, where `amount` is a specific value being handed in.\n\nDeep dive: a Return Value is what a method sends back after it runs — like a scout coming back from a mission with a report. Your code can use that report to decide what happens next (for example, checking if HP dropped to 0). Ask your AI tutor why programmers split code into methods instead of writing one giant list of instructions!"
-  ja: "注目ポイントは `def メソッド名`（新しい「技」を定義する命令）と、それに対応する `end`（技の終わりを示す）です。メソッドは `damage_player(amount)` のように引数（ひきすう）を受け取ることもできます。この `amount` が渡される具体的な値です。\n\nもっと詳しく：戻り値（Return Value）とは、メソッドが実行を終えたあとに送り返す答えのことです。偵察部隊がミッションから報告書を持って帰ってくるようなイメージです。その報告を使って、次に何をするか（例えばHPが0になったかどうか）を判断できます。なぜプログラマーは、1つの長いコードを書かずにメソッドへ分けるのか、AI先生に聞いてみよう！"
+  en: "Look for `loop do` or `while`/`until` — these tell the computer to repeat a block of code — and `break`, the 'emergency exit' that stops a loop from the inside.\n\nDeep dive: a condition like `input == 'quit'` is either true or false — this is called a Boolean. You can combine conditions with `&&` (AND) and `||` (OR) to build more complex rules, like 'keep looping while HP is above 0 AND the player hasn't quit.' If you ever get stuck in a loop that won't stop, you can always press `Ctrl + C` in the terminal to force it closed!"
+  ja: "注目ポイントは `loop do` や `while`/`until`（コードのかたまりを繰り返す命令）と、`break`（ループの中から抜け出す「非常出口」）です。\n\nもっと詳しく：`input == 'quit'` のような条件は、正しい（true）か正しくない（false）かのどちらかになります。これを真偽値（Boolean）と呼びます。`&&`（かつ）や `||`（または）を組み合わせれば、「HPが0より上、かつプレイヤーがまだやめていない間はループを続ける」といった複雑なルールも作れます。もしループが止まらなくなってしまったら、ターミナルで `Ctrl + C` を押せばいつでも強制終了できるから安心してね！"
 power_prompts:
   en:
-    - "Can you show me how to pass information into a method, like a `damage_player(amount)` method that subtracts `amount` from my HP?"
-    - "What is a return value, and how can I use one to check if the player is still alive?"
-    - "Why do programmers split code into methods instead of writing one giant block?"
+    - "Can you show me how to wrap my whole game in a loop that only stops when the player types 'quit'?"
+    - "What's the difference between `loop do...break` and `while condition...end`?"
+    - "How do I combine two conditions with `&&` or `||` to decide when my loop should stop?"
   ja:
-    - "`damage_player(amount)` のようなメソッドを作って、`amount` の分だけHPを減らす方法を教えて。メソッドに情報を渡すやり方が知りたい。"
-    - "戻り値（Return Value）って何？ それを使ってプレイヤーがまだ生きているか確認する方法を教えて。"
-    - "プログラマーはなぜ1つの長いコードを書かずに、メソッドに分けるの？"
+    - "ゲーム全体を、プレイヤーが 'quit' と入力したときだけ終わるループで包む方法を教えて。"
+    - "`loop do...break` と `while 条件...end` の違いは何？"
+    - "`&&` や `||` を使って2つの条件を組み合わせ、ループが止まるタイミングを決める方法を教えて。"
 checks:
   - type: source
-    pattern: 'def \w+[\s\S]*def \w+'
+    pattern: 'loop do|while|until'
     hint:
-      en: "I could only find one `def` (or none) — I'm looking for at least two separate methods in your code. Ask your AI tutor: 'How do I organize my game into methods?'"
-      ja: "`def` が1つしか（または全く）見つかりませんでした。少なくとも2つの別々のメソッドが必要です。AI先生に聞いてみよう：「ゲームをメソッドに整理するにはどうすればいい？」"
+      en: "I couldn't find a loop in your code — `loop do`, `while`, or `until`. Your game needs to keep going instead of stopping after one round. Ask your AI tutor about loops in Ruby!"
+      ja: "コードの中にループ（`loop do`、`while`、`until`）が見つかりませんでした。ゲームは一回で終わらず、繰り返し続く必要があります。AI先生にRubyのループについて聞いてみよう！"
+  - type: source
+    pattern: 'break|exit'
+    hint:
+      en: "I couldn't find `break` or `exit`. Without one of these, your loop has no way to end when the player types 'quit'. Ask your AI tutor how to escape a loop!"
+      ja: "`break` や `exit` が見つかりませんでした。これがないと、プレイヤーが 'quit' と入力してもループが終わりません。AI先生にループから抜け出す方法を聞いてみよう！"
   - type: run
     stdin: "Hero\n12\n1\nquit\n"
     expect: []
     forbid: ['(NoMethodError|NameError|SyntaxError|TypeError|ArgumentError|RuntimeError|ZeroDivisionError)']
     hint:
-      en: "I played through your game and something crashed. Check that both your methods are defined correctly (with matching `end`s) and called the way you defined them."
-      ja: "ゲームを実際に動かしてみたら、エラーが出てしまいました。2つのメソッドがどちらもきちんと定義されていて（`end` を忘れずに）、定義した通りに呼び出されているか確認してみよう。"
+      en: "I played through your game as 'Hero', age 12, picking option 1, then typing 'quit' — and something crashed. Make sure your loop and your quit handling work together without errors."
+      ja: "'Hero'、年齢12、選択肢「1」を選んで最後に 'quit' と入力してプレイしてみたところ、エラーが出てしまいました。ループと 'quit' の処理がうまく組み合わさっているか確認してみよう。"

@@ -1,77 +1,45 @@
 id: 10
-xp: 500
+xp: 250
 title:
-  en: "Your Ultimate Quest"
-  ja: "究極のクエスト"
+  en: "Saving the Story"
+  ja: "物語を保存する"
 story:
-  en: "This is it — the final boss. You've learned variables, choices, loops, methods, arrays, hashes, symbols, randomness, and saving. Now it's time to bring every skill together into one polished game that's truly yours. Pick your theme — samurai, mecha pilot, wizard, whatever calls to you — and make this adventure something you'd be proud to show a friend or family member."
-  ja: "ついにここまで来ました——最後の関門です。君は変数、選択、ループ、メソッド、配列、ハッシュ、シンボル、乱数、そしてセーブの仕組みを学んできました。ここからは、学んだすべてのスキルを1つのゲームにまとめ上げ、本当に「君だけのゲーム」に仕上げるときです。テーマは自由——侍でも、メカのパイロットでも、魔法使いでも、心惹かれるものを選んで、友達や家族に見せたくなるような冒険を完成させましょう。"
+  en: "Every great story deserves a bookmark. What happens when your player needs to stop for dinner and come back tomorrow? Without saving, all their progress vanishes the moment the game closes. Give your hero a way to leave a mark on the world that lasts even after the terminal closes: typing `save` should write their progress to a file."
+  ja: "どんな素晴らしい物語にも、しおりが必要です。もしプレイヤーが夕食のために中断して、明日また続きをやりたくなったらどうしましょう？ 保存（セーブ）の仕組みがなければ、ゲームを閉じた瞬間にすべての進み具合が消えてしまいます。ターミナルを閉じたあとも残る、世界に足跡を残す方法をヒーローに与えましょう——`save` と入力したら、進み具合をファイルに書き込むようにします。"
 task:
   en:
-    - "Your game runs inside a loop, and typing `quit` exits it cleanly."
-    - "You have at least 2 methods, each doing a clear job."
-    - "You have an inventory Array the player can add items to."
-    - "You have a stats Hash using at least one Symbol key (like `:health`)."
-    - "You have at least one place where `rand` or `.sample` adds randomness."
-    - "Typing `save` writes progress to a file with `File.write` or `File.open`."
-    - "The whole game runs from start to finish without crashing, no matter what the player types."
-    - "Polish it, make it yours, and show it to a friend or family member!"
+    - "Let the player type `save` at some point during the game."
+    - "When they do, write something about their progress (like their name, HP, or inventory) to a file using `File.write` or `File.open`."
   ja:
-    - "ゲームがループの中で動き、`quit` と入力すればきちんと終了する。"
-    - "はっきりとした役割を持つメソッドが、少なくとも2つある。"
-    - "プレイヤーがアイテムを追加できる、持ち物の配列（インベントリ）がある。"
-    - "少なくとも1つのシンボルキー（`:health` など）を使ったステータスのハッシュがある。"
-    - "`rand` または `.sample` を使ってランダムな要素を加えている箇所が、少なくとも1つある。"
-    - "`save` と入力すると、`File.write` または `File.open` で進み具合がファイルに保存される。"
-    - "プレイヤーが何を入力しても、ゲームが最初から最後までエラーなく動く。"
-    - "仕上げを磨いて、君だけのゲームにして、友達や家族に見せてみよう！"
+    - "ゲームの途中で、プレイヤーが `save` と入力できるようにしましょう。"
+    - "`save` と入力されたら、`File.write` または `File.open` を使って、進み具合（名前、HP、持ち物など）をファイルに書き込みましょう。"
 concepts:
-  en: "This level has no new syntax — it's about combining everything: `def`, `loop do`/`while`/`until`, Arrays (`= []`), Hashes with Symbol keys (`:key`), `rand`/`.sample`, and `File.write`/`File.open`.\n\nDeep dive: real software is rarely built from one new concept at a time — it's built by weaving together tools you already know into something bigger than the sum of its parts. This is exactly what professional developers do every day. Work with your AI tutor one small piece at a time, testing with `ruby quest.rb check` as you go, rather than trying to write it all at once."
-  ja: "このレベルには新しい文法はありません——これまで学んだすべてを組み合わせる回です。`def`、`loop do`/`while`/`until`、配列（`= []`）、シンボルキーを使ったハッシュ（`:key`）、`rand`/`.sample`、そして `File.write`/`File.open`。\n\nもっと詳しく：本物のソフトウェアは、一度に1つの新しい概念だけで作られることはほとんどありません。すでに知っている道具を織り合わせて、それぞれを合わせた以上の何かを作り上げるのです。これはまさに、プロのエンジニアが毎日やっていることです。一気に全部書こうとせず、AI先生と一緒に1つずつ小さく進めて、`ruby quest.rb check` でこまめに確認しながら作っていこう。"
+  en: "Look for `File.write('save.txt', data)`, which creates a file (or overwrites one) and puts data inside it, and a check for the word `save` being typed by the player somewhere in your code.\n\nDeep dive: 'Persistence' is a big word that just means data sticking around even after the program (or the power) turns off. Files are the most basic way to achieve it. Ask your AI tutor what happens if `save.txt` doesn't exist yet when you try to read it — and how `File.exist?` can protect your game from crashing!"
+  ja: "注目ポイントは `File.write('save.txt', data)`（ファイルを作って——または上書きして——中にデータを書き込む）と、プレイヤーが `save` と入力したかどうかをコードのどこかで確認している部分です。\n\nもっと詳しく：「永続性（えいぞくせい / Persistence）」という難しい言葉は、プログラム（や電源）が止まってもデータが残ることを意味します。ファイルは、それを実現する一番基本的な方法です。もし `save.txt` がまだ存在しないときに読み込もうとしたらどうなるか、`File.exist?` を使ってゲームが止まらないようにする方法を、AI先生に聞いてみよう！"
 power_prompts:
   en:
-    - "I'm ready for my final project — a text adventure about [my theme]. Can we plan it out together, one small piece at a time?"
-    - "Can you help me review my adventure.rb and suggest one small polish, without rewriting it for me?"
-    - "What's one creative feature I could add that goes beyond the checklist?"
+    - "How can I save the player's name and HP to a text file called save.txt when they type 'save'?"
+    - "How do I read that file back when the game starts, so the player can continue where they left off?"
+    - "What happens if save.txt doesn't exist yet, and how does File.exist? help?"
   ja:
-    - "最後のプロジェクトに挑戦したいです——テーマは[自分のテーマ]です。少しずつ一緒に計画を立ててくれる？"
-    - "adventure.rb を見て、1つだけ小さな改善点を教えてくれる？ 代わりに書き直すのはナシで。"
-    - "チェックリストを超えて、何か創造的な機能を1つ追加するとしたら、どんなアイデアがある？"
+    - "プレイヤーが 'save' と入力したときに、名前とHPを save.txt というテキストファイルに保存する方法を教えて。"
+    - "ゲームが始まるときにそのファイルを読み込んで、続きから遊べるようにする方法を教えて。"
+    - "もし save.txt がまだ存在しなかったらどうなるの？ File.exist? はどう役に立つの？"
 checks:
-  - type: source
-    pattern: 'def'
-    hint:
-      en: "I couldn't find any methods (`def`) in your final game. A polished adventure needs at least a couple of clear, named actions. Ask your AI tutor to help you organize your code into methods!"
-      ja: "最終的なゲームにメソッド（`def`）が見つかりませんでした。仕上がったゲームには、少なくともいくつかのはっきりした行動が必要です。AI先生にコードをメソッドに整理する手伝いをお願いしよう！"
-  - type: source
-    pattern: 'loop do|while|until'
-    hint:
-      en: "I couldn't find a loop. Your final game needs to keep running until the player quits, not stop after one round."
-      ja: "ループが見つかりませんでした。最終的なゲームは、プレイヤーがやめるまで続くようにする必要があります。一回で終わってはいけません。"
-  - type: source
-    pattern: '=\s*\['
-    hint:
-      en: "I couldn't find an inventory Array. Make sure your game still has a list the player can add items to."
-      ja: "インベントリの配列が見つかりませんでした。プレイヤーがアイテムを追加できるリストが、ゲームにちゃんと残っているか確認してみよう。"
-  - type: source
-    pattern: ':\w+'
-    hint:
-      en: "I couldn't find a Symbol anywhere. Your stats Hash should use at least one Symbol key, like `:health`."
-      ja: "シンボルが見つかりませんでした。ステータスのハッシュには、`:health` のようなシンボルキーを少なくとも1つ使いましょう。"
-  - type: source
-    pattern: '\brand\b|\.sample'
-    hint:
-      en: "I couldn't find `rand` or `.sample`. Make sure some part of your final game still uses randomness."
-      ja: "`rand` や `.sample` が見つかりませんでした。最終的なゲームのどこかに、ランダムな要素が残っているか確認してみよう。"
   - type: source
     pattern: 'File\.(write|open)'
     hint:
-      en: "I couldn't find `File.write` or `File.open`. Your final game should still be able to save progress."
-      ja: "`File.write` や `File.open` が見つかりませんでした。最終的なゲームでも、進み具合を保存できるようにしておこう。"
+      en: "I couldn't find `File.write` or `File.open` anywhere. You need one of these to actually save data to a file. Ask your AI tutor: 'How do I write data to a file in Ruby?'"
+      ja: "`File.write` や `File.open` が見つかりませんでした。データをファイルに保存するには、どちらかが必要です。AI先生に聞いてみよう：「Rubyでファイルにデータを書き込むにはどうすればいい？」"
+  - type: source
+    pattern: 'save'
+    hint:
+      en: "I couldn't find the word 'save' being checked anywhere in your code. The player needs to be able to type 'save' to trigger the file write. Ask your AI tutor how to detect a specific typed command!"
+      ja: "コードの中に 'save' という単語をチェックしている部分が見つかりませんでした。プレイヤーが 'save' と入力したら、ファイルへの書き込みが始まるようにする必要があります。AI先生に、特定の入力コマンドを検知する方法を聞いてみよう！"
   - type: run
-    stdin: "Hero\n12\n1\n2\nsave\nquit\n"
+    stdin: "Hero\n12\nsave\nquit\n"
     expect: []
     forbid: ['(NoMethodError|NameError|SyntaxError|TypeError|ArgumentError|RuntimeError|ZeroDivisionError)']
     hint:
-      en: "I played 'Hero', age 12, choosing 1 then 2, saving, then quitting — and something crashed. This is your final boss fight against bugs! Read the error carefully, ask your AI tutor what it means, and fix it piece by piece."
-      ja: "'Hero'、年齢12で、選択肢「1」→「2」を選び、'save' してから 'quit' でプレイしてみたところ、エラーが出てしまいました。これがバグとの最終決戦です！エラーをよく読んで、AI先生にその意味を聞いて、1つずつ直していこう。"
+      en: "I played 'Hero', age 12, typed 'save', then 'quit' — and something crashed. Make sure typing 'save' doesn't break your main loop, and that File.write has valid arguments."
+      ja: "'Hero'、年齢12で、'save' と入力してから 'quit' でプレイしてみたところ、エラーが出ました。'save' と入力してもメインループが壊れないか、`File.write` の引数が正しいか確認してみよう。"

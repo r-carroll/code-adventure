@@ -1,45 +1,40 @@
 id: 7
 xp: 200
 title:
-  en: "Symbols and Secrets"
-  ja: "シンボルと秘密"
+  en: "Mapping the World"
+  ja: "世界の地図"
 story:
-  en: "Strings are fine for text a player reads, but for the secret internal labels your game uses — like whether the hero is alive, dead, or victorious — Ruby has something faster and more reliable: Symbols. They look like `:forest` or `:alive`. Rewrite part of your world to use Symbols as Hash keys, and use one to track a piece of hidden game state."
-  ja: "プレイヤーが読む文章には文字列（String）で十分ですが、ゲームの内部だけで使う秘密のラベル——ヒーローが生きているか、死んでいるか、勝利したか——には、Rubyにはもっと速くて信頼できる仕組みがあります。それがシンボル（Symbol）です。`:forest` や `:alive` のように書きます。世界の一部をシンボルをキーにしたハッシュに書き換えて、シンボルを使って隠れたゲームの状態を1つ管理してみましょう。"
+  en: "Arrays are great for lists, but some things need more than an order — they need a description. Your world needs a map: places, stats, or facts that pair a name with information about it. Build a Hash that stores something meaningful about your hero or their world, and show a piece of it in the game."
+  ja: "配列（リスト）は順番に並べるのが得意ですが、中には「並び」よりも「説明」が必要なものもあります。君の世界には地図が必要です——名前とその情報がペアになったもの。ヒーローや世界について意味のある情報を保存するハッシュ（Hash）を作り、その中身の一部をゲームの中で見せてあげましょう。"
 task:
   en:
-    - "Use at least one Symbol (like `:health` or `:alive`) as a Hash key somewhere in your game."
-    - "Read a value out of the Hash using its Symbol key (like `stats[:health]`)."
+    - "Create a Hash that pairs a Key with a Value (for example, player stats like health, or world locations with descriptions)."
+    - "Look up and print at least one Value from the Hash somewhere in your game."
   ja:
-    - "少なくとも1つのシンボル（`:health` や `:alive` など）を、ハッシュのキーとして使いましょう。"
-    - "そのシンボルのキーを使って、ハッシュから値を取り出しましょう（例：`stats[:health]`）。"
+    - "キー（Key）と値（Value）をペアにしたハッシュ（Hash）を作りましょう（例えば、プレイヤーのステータス（HPなど）や、場所とその説明など）。"
+    - "ハッシュから値を1つ以上取り出して、ゲームの中で表示しましょう。"
 concepts:
-  en: "Look for `:name` (the colon at the start makes it a Symbol) and `hash[:key]` (using a Symbol to pull a value out of a Hash). A pattern like `status = :playing` is a great way to track your game's 'state' — is the player `:alive`, `:dead`, or `:winner`?\n\nDeep dive: Symbols are immutable — once created, they can't be changed — which makes them fast and reliable as internal names and labels, unlike Strings which are just data a player might type or read. Ask your AI tutor about the difference between a String `'forest'` and a Symbol `:forest`, and why Symbols are faster for the computer to compare."
-  ja: "注目ポイントは `:name`（先頭のコロンがついているとシンボル）と、`hash[:key]`（シンボルを使ってハッシュから値を取り出す書き方）です。`status = :playing` のような書き方は、ゲームの「状態」——プレイヤーが `:alive`（生存）、`:dead`（死亡）、`:winner`（勝利）のどれか——を管理するのにぴったりです。\n\nもっと詳しく：シンボルはイミュータブル（不変）です——一度作ったら変更できません。だから内部の名前やラベルとして使うと、速くて信頼できます。プレイヤーが入力したり読んだりするただのデータである文字列（String）とは違います。文字列の `'forest'` とシンボルの `:forest` は何が違うのか、なぜシンボルの方がコンピューターにとって比較が速いのか、AI先生に聞いてみよう。"
+  en: "Look for `world_map = { 'Forest' => 'A dark woods...' }` — this creates a Hash — and `world_map['Forest']`, which 'gets' the value back out.\n\nDeep dive: think of a Hash like a real dictionary. The word you look up is the Key, and the definition is the Value. You could use a Hash to store a monster's stats too, like `{ 'name' => 'Goblin', 'hp' => 50 }` — ask your AI tutor to show you how!"
+  ja: "注目ポイントは `world_map = { '森' => '暗い森が広がっている…' }`（ハッシュを作る書き方）と、`world_map['森']`（値を取り出す書き方）です。\n\nもっと詳しく：ハッシュは本物の「辞書」のようなものだと考えてください。調べたい言葉が Key（キー）で、その意味が Value（値）です。モンスターのステータスをハッシュで保存することもできます。例えば `{ '名前' => 'ゴブリン', 'HP' => 50 }` のように。やり方をAI先生に聞いてみよう！"
 power_prompts:
   en:
-    - "What is the difference between a String like 'forest' and a Symbol like :forest?"
-    - "Can you show me how to rewrite my world map Hash using Symbols as keys?"
-    - "How could I use a variable like `current_state` set to a Symbol to decide if my game loop should keep running?"
+    - "Can you show me how to use a Hash in Ruby where the Key is a place name and the Value is its description?"
+    - "How do I look up a value from a Hash using its key?"
+    - "Could I use a Hash to store a monster's stats, like name and HP together?"
   ja:
-    - "文字列の 'forest' と、シンボルの :forest は何が違うの？"
-    - "マップのハッシュを、シンボルをキーにして書き換える方法を教えて。"
-    - "シンボルを入れた `current_state` という変数を使って、ゲームのループを続けるかどうか決める方法を教えて。"
+    - "Rubyのハッシュを使って、キーを場所の名前、値をその説明にする方法を教えて。"
+    - "キーを使ってハッシュから値を取り出す方法を教えて。"
+    - "モンスターの名前とHPをまとめてハッシュで保存することはできる？"
 checks:
   - type: source
-    pattern: ':\w+\s*=>|\w+:\s'
+    pattern: '=>|\{\s*\w+:|\w+:\s'
     hint:
-      en: "I couldn't find a Symbol being used as a Hash key (something like `:health =>` or `health:`). Ask your AI tutor: 'How do I use Symbols as Hash keys?'"
-      ja: "シンボルをハッシュのキーとして使っている部分（`:health =>` や `health:` のような形）が見つかりませんでした。AI先生に聞いてみよう：「シンボルをハッシュのキーとして使うにはどうすればいい？」"
-  - type: source
-    pattern: '\[:\w+\]'
-    hint:
-      en: "I couldn't find a Symbol being used to read a value, like `stats[:health]`. Ask your AI tutor how to look up a Hash value using a Symbol key!"
-      ja: "シンボルを使って値を取り出している部分（`stats[:health]` のような形）が見つかりませんでした。AI先生にシンボルのキーでハッシュの値を取り出す方法を聞いてみよう！"
+      en: "I couldn't find a Hash being created — something with `=>` or `key: value` pairs inside curly braces. Ask your AI tutor: 'How do I create a Hash in Ruby?'"
+      ja: "ハッシュを作っている部分（`=>` や、波かっこの中の `キー: 値` のペア）が見つかりませんでした。AI先生に聞いてみよう：「Rubyでハッシュを作るにはどうすればいい？」"
   - type: run
     stdin: "Hero\n12\n1\nquit\n"
     expect: []
     forbid: ['(NoMethodError|NameError|SyntaxError|TypeError|ArgumentError|RuntimeError|ZeroDivisionError)']
     hint:
-      en: "I played through your game and it crashed. Check that your Symbol keys match exactly (Ruby is picky about spelling and colons!) between where you set them and where you read them."
-      ja: "ゲームを動かしてみたらエラーが出ました。シンボルのキーが、設定した場所と読み取る場所でぴったり一致しているか確認してみよう（Rubyはスペルやコロンにとても厳しいです！）。"
+      en: "I played through your game and it crashed. Double-check your Hash's curly braces and that you're looking up keys that actually exist."
+      ja: "ゲームを動かしてみたらエラーが出ました。ハッシュの波かっこの書き方や、存在するキーを正しく取り出しているか確認してみよう。"

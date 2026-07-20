@@ -83,8 +83,8 @@ RANKS = [
   { min: 2, max: 3, en: "Code Squire", ja: "コード従者" },
   { min: 4, max: 5, en: "Rune Coder", ja: "ルーンコーダー" },
   { min: 6, max: 7, en: "Logic Knight", ja: "ロジック騎士" },
-  { min: 8, max: 9, en: "World Builder", ja: "ワールドビルダー" },
-  { min: 10, max: 10, en: "Ruby Master", ja: "ルビーマスター" },
+  { min: 8, max: 10, en: "World Builder", ja: "ワールドビルダー" },
+  { min: 11, max: 11, en: "Ruby Master", ja: "ルビーマスター" },
 ].freeze
 
 TITLE_BANNER = <<~ART
@@ -142,7 +142,7 @@ ART
 # The engine itself.
 # ---------------------------------------------------------------------------
 class QuestEngine
-  LEVEL_COUNT = 10
+  LEVEL_COUNT = 11
   ADVENTURE_FILE = "adventure.rb"
   SAVE_FILE = ".quest_save.yml"
   LEVELS_DIR = File.join(__dir__, "quest", "levels")

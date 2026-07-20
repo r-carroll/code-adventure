@@ -1,40 +1,45 @@
 id: 8
 xp: 200
 title:
-  en: "The Roll of the Dice"
-  ja: "ダイスを振れ"
+  en: "Symbols and Secrets"
+  ja: "シンボルと秘密"
 story:
-  en: "A game where the same thing happens every single time gets boring fast. Real adventures have risk — a blow that might miss, an item that might be rare, an event that surprises you. It's time to roll the dice: add randomness somewhere in your game."
-  ja: "毎回同じことしか起きないゲームは、すぐに飽きてしまいます。本当の冒険にはリスクがつきもの——攻撃が外れるかもしれないし、レアなアイテムが出るかもしれないし、思いがけない出来事が起きるかもしれません。ここでダイスを振ってみましょう。ゲームのどこかにランダム（乱数）の要素を加えます。"
+  en: "Strings are fine for text a player reads, but for the secret internal labels your game uses — like whether the hero is alive, dead, or victorious — Ruby has something faster and more reliable: Symbols. They look like `:forest` or `:alive`. Rewrite part of your world to use Symbols as Hash keys, and use one to track a piece of hidden game state."
+  ja: "プレイヤーが読む文章には文字列（String）で十分ですが、ゲームの内部だけで使う秘密のラベル——ヒーローが生きているか、死んでいるか、勝利したか——には、Rubyにはもっと速くて信頼できる仕組みがあります。それがシンボル（Symbol）です。`:forest` や `:alive` のように書きます。世界の一部をシンボルをキーにしたハッシュに書き換えて、シンボルを使って隠れたゲームの状態を1つ管理してみましょう。"
 task:
   en:
-    - "Add randomness somewhere in your game using `rand` or `.sample` (for example, random damage, a randomly picked item, or a random event)."
-    - "Make sure the random outcome actually affects what happens or what's shown to the player."
+    - "Use at least one Symbol (like `:health` or `:alive`) as a Hash key somewhere in your game."
+    - "Read a value out of the Hash using its Symbol key (like `stats[:health]`)."
   ja:
-    - "`rand` または `.sample` を使って、ゲームのどこかにランダムな要素を加えましょう（例：ランダムなダメージ、ランダムに選ばれるアイテム、ランダムなイベントなど）。"
-    - "そのランダムな結果が、実際にゲームの展開やプレイヤーへの表示に影響するようにしましょう。"
+    - "少なくとも1つのシンボル（`:health` や `:alive` など）を、ハッシュのキーとして使いましょう。"
+    - "そのシンボルのキーを使って、ハッシュから値を取り出しましょう（例：`stats[:health]`）。"
 concepts:
-  en: "Look for `rand(1..10)` (gives a random number in that range) or `.sample` (picks a random item from an Array). A pattern like `if dice_roll > 15` creates a 'difficulty check' using that random number.\n\nDeep dive: computers aren't actually random — they use complex math to fake it, which is called pseudo-randomness. Ask your AI tutor how `rand` really works under the hood! Then try going further: could a roll of exactly 20 trigger a 'Critical Hit'? Could a 'Luck' stat add a bonus to the roll?"
-  ja: "注目ポイントは `rand(1..10)`（その範囲のランダムな数字を出す）や `.sample`（配列からランダムに1つ選ぶ）です。`if dice_roll > 15` のような書き方をすれば、そのランダムな数字を使った「難易度チェック」が作れます。\n\nもっと詳しく：実はコンピューターは本当のランダムが苦手です。複雑な計算を使ってランダムっぽく「見せかけて」います。これを疑似乱数（ぎじらんすう）と呼びます。`rand` が実際どういう仕組みで動いているのか、AI先生に聞いてみよう！さらに挑戦するなら——ダイスでぴったり20が出たら「クリティカルヒット」にできないかな？ 「運（Luck）」というステータスを作って、ダイスの結果にボーナスを足すこともできるかも？"
+  en: "Look for `:name` (the colon at the start makes it a Symbol) and `hash[:key]` (using a Symbol to pull a value out of a Hash). A pattern like `status = :playing` is a great way to track your game's 'state' — is the player `:alive`, `:dead`, or `:winner`?\n\nDeep dive: Symbols are immutable — once created, they can't be changed — which makes them fast and reliable as internal names and labels, unlike Strings which are just data a player might type or read. Ask your AI tutor about the difference between a String `'forest'` and a Symbol `:forest`, and why Symbols are faster for the computer to compare."
+  ja: "注目ポイントは `:name`（先頭のコロンがついているとシンボル）と、`hash[:key]`（シンボルを使ってハッシュから値を取り出す書き方）です。`status = :playing` のような書き方は、ゲームの「状態」——プレイヤーが `:alive`（生存）、`:dead`（死亡）、`:winner`（勝利）のどれか——を管理するのにぴったりです。\n\nもっと詳しく：シンボルはイミュータブル（不変）です——一度作ったら変更できません。だから内部の名前やラベルとして使うと、速くて信頼できます。プレイヤーが入力したり読んだりするただのデータである文字列（String）とは違います。文字列の `'forest'` とシンボルの `:forest` は何が違うのか、なぜシンボルの方がコンピューターにとって比較が速いのか、AI先生に聞いてみよう。"
 power_prompts:
   en:
-    - "How do I use `rand(1..20)` to simulate rolling a 20-sided dice?"
-    - "How can I use a random roll to decide if an attack hits or misses?"
-    - "Could you show me how to use `.sample` to randomly pick an item from an Array?"
+    - "What is the difference between a String like 'forest' and a Symbol like :forest?"
+    - "Can you show me how to rewrite my world map Hash using Symbols as keys?"
+    - "How could I use a variable like `current_state` set to a Symbol to decide if my game loop should keep running?"
   ja:
-    - "`rand(1..20)` を使って20面ダイスを振るシミュレーションをする方法を教えて。"
-    - "ランダムなダイスの結果を使って、攻撃が命中したかミスしたか決める方法を教えて。"
-    - "`.sample` を使って配列からランダムにアイテムを選ぶ方法を教えて。"
+    - "文字列の 'forest' と、シンボルの :forest は何が違うの？"
+    - "マップのハッシュを、シンボルをキーにして書き換える方法を教えて。"
+    - "シンボルを入れた `current_state` という変数を使って、ゲームのループを続けるかどうか決める方法を教えて。"
 checks:
   - type: source
-    pattern: '\brand\b|\.sample'
+    pattern: ':\w+\s*=>|\w+:\s'
     hint:
-      en: "I couldn't find `rand` or `.sample` anywhere. Your game needs a bit of chance in it! Ask your AI tutor: 'How do I use rand to add randomness to my game?'"
-      ja: "`rand` や `.sample` が見つかりませんでした。ゲームには少し「運」の要素が必要です！AI先生に聞いてみよう：「rand を使ってゲームにランダムな要素を加えるにはどうすればいい？」"
+      en: "I couldn't find a Symbol being used as a Hash key (something like `:health =>` or `health:`). Ask your AI tutor: 'How do I use Symbols as Hash keys?'"
+      ja: "シンボルをハッシュのキーとして使っている部分（`:health =>` や `health:` のような形）が見つかりませんでした。AI先生に聞いてみよう：「シンボルをハッシュのキーとして使うにはどうすればいい？」"
+  - type: source
+    pattern: '\[:\w+\]'
+    hint:
+      en: "I couldn't find a Symbol being used to read a value, like `stats[:health]`. Ask your AI tutor how to look up a Hash value using a Symbol key!"
+      ja: "シンボルを使って値を取り出している部分（`stats[:health]` のような形）が見つかりませんでした。AI先生にシンボルのキーでハッシュの値を取り出す方法を聞いてみよう！"
   - type: run
     stdin: "Hero\n12\n1\nquit\n"
     expect: []
     forbid: ['(NoMethodError|NameError|SyntaxError|TypeError|ArgumentError|RuntimeError|ZeroDivisionError)']
     hint:
-      en: "I played through your game and it crashed. Random numbers are still numbers — make sure you're not accidentally comparing them to text, or using a range that doesn't make sense."
-      ja: "ゲームを動かしてみたらエラーが出ました。ランダムな数字もあくまで数字です——文字と比べてしまっていないか、範囲の指定がおかしくないか確認してみよう。"
+      en: "I played through your game and it crashed. Check that your Symbol keys match exactly (Ruby is picky about spelling and colons!) between where you set them and where you read them."
+      ja: "ゲームを動かしてみたらエラーが出ました。シンボルのキーが、設定した場所と読み取る場所でぴったり一致しているか確認してみよう（Rubyはスペルやコロンにとても厳しいです！）。"

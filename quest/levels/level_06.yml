@@ -1,40 +1,47 @@
 id: 6
-xp: 200
+xp: 150
 title:
-  en: "Mapping the World"
-  ja: "世界の地図"
+  en: "The Hero's Backpack"
+  ja: "勇者のバックパック"
 story:
-  en: "Arrays are great for lists, but some things need more than an order — they need a description. Your world needs a map: places, stats, or facts that pair a name with information about it. Build a Hash that stores something meaningful about your hero or their world, and show a piece of it in the game."
-  ja: "配列（リスト）は順番に並べるのが得意ですが、中には「並び」よりも「説明」が必要なものもあります。君の世界には地図が必要です——名前とその情報がペアになったもの。ヒーローや世界について意味のある情報を保存するハッシュ（Hash）を作り、その中身の一部をゲームの中で見せてあげましょう。"
+  en: "Every hero collects things along the way — potions, swords, strange trinkets picked up in the dark. Your game needs a backpack: a list that can grow as the player finds new items. Create an inventory, let your hero pick things up, and give them a way to look inside."
+  ja: "どんなヒーローも、旅の途中でいろいろな物を集めていきます——ポーション、剣、暗闇で拾った不思議な品々。君のゲームにも「バックパック」、つまり見つけたアイテムが増えていくリストが必要です。持ち物リスト（インベントリ）を作り、ヒーローがアイテムを手に入れられるようにして、中身を確認できるようにしましょう。"
 task:
   en:
-    - "Create a Hash that pairs a Key with a Value (for example, player stats like health, or world locations with descriptions)."
-    - "Look up and print at least one Value from the Hash somewhere in your game."
+    - "Create an inventory Array to hold the player's items (it can start empty)."
+    - "Add at least one item to the inventory using `<<` or `.push` somewhere during the game."
+    - "Give the player a way to see what's inside the inventory (for example, printing the Array)."
   ja:
-    - "キー（Key）と値（Value）をペアにしたハッシュ（Hash）を作りましょう（例えば、プレイヤーのステータス（HPなど）や、場所とその説明など）。"
-    - "ハッシュから値を1つ以上取り出して、ゲームの中で表示しましょう。"
+    - "プレイヤーの持ち物を入れておくための配列（Array）を作りましょう（最初は空っぽでOK）。"
+    - "ゲームの中で `<<` または `.push` を使って、少なくとも1つアイテムをインベントリに追加しましょう。"
+    - "プレイヤーが持ち物の中身を確認できるようにしましょう（例えば配列を表示するなど）。"
 concepts:
-  en: "Look for `world_map = { 'Forest' => 'A dark woods...' }` — this creates a Hash — and `world_map['Forest']`, which 'gets' the value back out.\n\nDeep dive: think of a Hash like a real dictionary. The word you look up is the Key, and the definition is the Value. You could use a Hash to store a monster's stats too, like `{ 'name' => 'Goblin', 'hp' => 50 }` — ask your AI tutor to show you how!"
-  ja: "注目ポイントは `world_map = { '森' => '暗い森が広がっている…' }`（ハッシュを作る書き方）と、`world_map['森']`（値を取り出す書き方）です。\n\nもっと詳しく：ハッシュは本物の「辞書」のようなものだと考えてください。調べたい言葉が Key（キー）で、その意味が Value（値）です。モンスターのステータスをハッシュで保存することもできます。例えば `{ '名前' => 'ゴブリン', 'HP' => 50 }` のように。やり方をAI先生に聞いてみよう！"
+  en: "Look for `inventory = []` (creates an empty list) and `<<` or `.push` (adds something to the end of the list).\n\nDeep dive: Ruby (like most programming languages) counts positions starting at 0 — so the first item in your array is at index 0, the second at index 1. Ask your AI tutor why programmers start counting at zero! Arrays also come with built-in skills: you can `.sort` them, `.reverse` them, even `.shuffle` them, and `inventory.include?('Sword')` checks whether something is already in the list."
+  ja: "注目ポイントは `inventory = []`（空っぽのリストを作る）と、`<<` または `.push`（リストの最後に何かを追加する）です。\n\nもっと詳しく：Ruby（そしてほとんどのプログラミング言語）は、位置を **0** から数え始めます。つまり配列の1番目は0番目、2番目は1番目になります。なぜ0から数え始めるのか、AI先生に聞いてみよう！配列には便利な「組み込みの技」もあります。`.sort`（並べ替え）、`.reverse`（逆順）、`.shuffle`（シャッフル）などが使えます。また `inventory.include?('剣')` を使えば、リストの中にすでにあるかどうか確認できます。"
 power_prompts:
   en:
-    - "Can you show me how to use a Hash in Ruby where the Key is a place name and the Value is its description?"
-    - "How do I look up a value from a Hash using its key?"
-    - "Could I use a Hash to store a monster's stats, like name and HP together?"
+    - "How do I create an Array in Ruby to hold inventory items like 'Sword' and 'Potion'?"
+    - "Can you show me how to `push` a new item into a list, and how to check how many items are in it?"
+    - "How would I remove an item from the inventory if the player uses it, like a potion?"
   ja:
-    - "Rubyのハッシュを使って、キーを場所の名前、値をその説明にする方法を教えて。"
-    - "キーを使ってハッシュから値を取り出す方法を教えて。"
-    - "モンスターの名前とHPをまとめてハッシュで保存することはできる？"
+    - "'剣' や 'ポーション' のようなアイテムを入れる配列（Array）をRubyで作る方法を教えて。"
+    - "新しいアイテムをリストに `push` する方法と、リストの中に何個アイテムがあるか数える方法を教えて。"
+    - "プレイヤーがポーションを使ったときに、インベントリからアイテムを削除する方法を教えて。"
 checks:
   - type: source
-    pattern: '=>|\{\s*\w+:|\w+:\s'
+    pattern: '=\s*\['
     hint:
-      en: "I couldn't find a Hash being created — something with `=>` or `key: value` pairs inside curly braces. Ask your AI tutor: 'How do I create a Hash in Ruby?'"
-      ja: "ハッシュを作っている部分（`=>` や、波かっこの中の `キー: 値` のペア）が見つかりませんでした。AI先生に聞いてみよう：「Rubyでハッシュを作るにはどうすればいい？」"
+      en: "I couldn't find an Array being created (something like `inventory = []`). Ask your AI tutor: 'How do I create an Array to hold my inventory?'"
+      ja: "配列を作っている部分（`inventory = []` のような形）が見つかりませんでした。AI先生に聞いてみよう：「持ち物を入れる配列を作るにはどうすればいい？」"
+  - type: source
+    pattern: '<<|\.push'
+    hint:
+      en: "I couldn't find `<<` or `.push` — you need one of these to actually add items to your inventory. Ask your AI tutor how to add things to an Array!"
+      ja: "`<<` や `.push` が見つかりませんでした。インベントリにアイテムを追加するには、どちらかが必要です。AI先生に配列へアイテムを追加する方法を聞いてみよう！"
   - type: run
     stdin: "Hero\n12\n1\nquit\n"
     expect: []
     forbid: ['(NoMethodError|NameError|SyntaxError|TypeError|ArgumentError|RuntimeError|ZeroDivisionError)']
     hint:
-      en: "I played through your game and it crashed. Double-check your Hash's curly braces and that you're looking up keys that actually exist."
-      ja: "ゲームを動かしてみたらエラーが出ました。ハッシュの波かっこの書き方や、存在するキーを正しく取り出しているか確認してみよう。"
+      en: "I played through your game and it crashed. Double check your Array syntax — brackets, commas, and quotes all matter!"
+      ja: "ゲームを動かしてみたらエラーが出てしまいました。配列の書き方——かっこ、カンマ、クォーテーションなど——をもう一度確認してみよう！"

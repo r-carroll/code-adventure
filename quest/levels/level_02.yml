@@ -1,42 +1,44 @@
 id: 2
 xp: 100
 title:
-  en: "Making Choices"
-  ja: "運命の選択"
+  en: "The Fortune Teller"
+  ja: "運命の占い師"
 story:
-  en: "A true hero doesn't just talk — they decide. Your game now needs a fork in the road: a moment where the player picks a path, a weapon, or a spell, and the story bends around their choice. But choices are only fun if nothing breaks — no matter what the player picks, your game must handle it gracefully."
-  ja: "本物のヒーローは、ただ喋るだけでは終わりません——選ぶのです。ここからは、プレイヤーが道や武器、呪文を選び、その選択によって物語が変わる「分かれ道」を作りましょう。ただし、選択が楽しいのは、何を選んでもゲームが壊れないときだけ。プレイヤーが何を選んでも、ちゃんと対応できるようにしましょう。"
+  en: "Your game knows your hero's name now — but a name alone can't reveal a destiny. Every true fortune needs a number. Ask your hero how many years they've walked this world, and ancient math will reveal the exact 4-digit year they become a 100-year-old legend. Beware, though: the computer sees everything the player types as *text*, even numbers. That `12` the player types is really the letters \"12\". You'll have to turn that text into a real number before the magic will work."
+  ja: "ゲームはもうヒーローの名前を知っています——でも、名前だけでは運命はわかりません。本物の占いには「数字」が必要です。ヒーローがこの世界を何年歩いてきたのか（年齢）をたずねて、古（いにしえ）の計算で、その人が伝説の100歳になる西暦（4桁の数字）をぴたりと言い当てましょう。でも注意：コンピューターは、プレイヤーが入力したものを、たとえ数字でもぜんぶ「文字」として見ています。プレイヤーが入力した `12` は、じつは \"12\" という文字なのです。魔法を働かせるには、その文字を本物の数字に変えてあげる必要があります。"
 task:
   en:
-    - "Print a numbered menu of choices for the player (for example, a weapon, path, or action)."
-    - "Read the player's choice with `gets` and use `if`/`elsif`/`else` (or `case`) to react differently depending on what they picked."
-    - "Make sure every possible choice — including an unexpected one — leads to some printed response, without crashing."
+    - "Use `gets` and `.to_i` to ask the player's age and convert it into a number."
+    - "Calculate and print the 4-digit year the player will turn 100 years old."
   ja:
-    - "プレイヤーに番号つきの選択肢（例えば武器、道、行動など）を表示しましょう。"
-    - "`gets` でプレイヤーの選択を読み取り、`if`/`elsif`/`else`（または `case`）を使って選択ごとに違う反応を返しましょう。"
-    - "どんな選択（想定外の入力も含む）をしても、エラーで止まらずに何かしらのメッセージが表示されるようにしましょう。"
+    - "`gets` と `.to_i` を使って、プレイヤーに年齢を入力してもらい、数字に変換しましょう。"
+    - "そのプレイヤーが100歳になる西暦（4桁の数字）を計算して表示しましょう。"
 concepts:
-  en: "Look for `if`, `elsif`, `else` — the 'rules' of your game — and `==`, which checks whether two things are exactly equal (not to be confused with `=`, which assigns a value). A `case`/`when` statement is another clean way to handle many choices at once.\n\nDeep dive: `elsif` is short for 'else if' — it lets you check condition after condition until one matches. Ask your AI tutor why Ruby needs two equals signs (`==`) to compare, instead of one (`=`). Also think about capital letters: does your game treat 'Sword' and 'sword' as the same thing? If not, ask about `.downcase`!"
-  ja: "注目ポイントは `if`、`elsif`、`else` ——ゲームの「ルール」を決める部分です。それから `==`（2つのものが完全に同じかどうかを確認する記号。`=` は値を代入するための記号なので混同しないように！）。`case`/`when` を使うと、たくさんの選択肢をスッキリ書くこともできます。\n\nもっと詳しく：`elsif` は「そうでなければ、もし〜なら」という意味で、条件を順番にチェックしていきます。なぜRubyでは比べるときにイコールを2つ（`==`）使うのか、1つ（`=`）ではダメなのか、AI先生に聞いてみよう。あと、大文字と小文字も考えてみて——君のゲームは 'Sword' と 'sword' を同じものとして扱ってる？ もし違うなら `.downcase` について聞いてみよう！"
+  en: "The star of this level is the difference between a String (text) and an Integer (a whole number). Ruby reads everything from `gets` as a String, even if it looks like a number — so `12` typed by the player is really the text \"12\". You can't do math on text! `.to_i` (\"to integer\") is the spell that converts that text into a real number you can add and subtract.\n\nDeep dive: once age is a real number, the math is `100 - age` (years left until they turn 100), added to the current year (like `2026`). Try printing `age` before and after `.to_i`, and ask your tutor what happens if you try to do `100 - age` while age is still a String!"
+  ja: "このレベルの主役は、String（文字列＝文字）と Integer（整数＝数字）のちがいです。Rubyは `gets` で受け取ったものを、たとえ数字に見えても、ぜんぶ String として読みます——だからプレイヤーが入力した `12` は、じつは \"12\" という文字にすぎません。文字では計算ができないのです！ `.to_i`（to integer = 整数に変換）は、その文字を、足したり引いたりできる本物の数字に変える呪文です。\n\nもっと詳しく：年齢が本物の数字になれば、計算は `100 - age`（100歳になるまでの残りの年数）を、今の西暦（たとえば `2026`）に足すだけです。`.to_i` の前と後で `age` を表示して比べてみよう。そして、age がまだ String のまま `100 - age` をしたらどうなるか、AI先生に聞いてみよう！"
 power_prompts:
   en:
-    - "How do I use `elsif` to handle more than two choices in my game?"
-    - "Why does Ruby use `==` to compare things instead of `=`?"
-    - "How can I make my code ignore capital letters, so 'Sword' and 'sword' both work the same way?"
+    - "Can you explain how `.to_i` turns text into a number, and what happens if I forget to use it?"
+    - "Why does Ruby treat the age the player types as text instead of a number?"
+    - "How do I calculate the year someone turns 100 using their age and the current year?"
   ja:
-    - "ゲームで3つ以上の選択肢を扱うために `elsif` を使う方法を教えて。"
-    - "Rubyではなぜ比べるときに `=` じゃなくて `==` を使うの？"
-    - "大文字と小文字を区別せず、'Sword' でも 'sword' でも同じように動くようにするにはどうすればいい？"
+    - "`.to_i` が文字を数字に変える仕組みを教えて。使い忘れたらどうなるの？"
+    - "プレイヤーが入力した年齢が、なぜ数字ではなく文字としてあつかわれるの？"
+    - "年齢と今の西暦を使って、その人が100歳になる年を計算するにはどうすればいい？"
 checks:
-  - type: source
-    pattern: '\bif\b|\bcase\b'
+  - type: file_exists
     hint:
-      en: "I couldn't find an `if` or `case` statement. Your game needs to react differently depending on what the player picks. Ask your AI tutor: 'How do I use if/elsif/else to handle a player's choice?'"
-      ja: "`if` や `case` が見つかりませんでした。プレイヤーが選んだ内容によって、ゲームの反応を変える必要があります。AI先生に聞いてみよう：「プレイヤーの選択によって反応を変えるには if/elsif/else をどう使えばいい？」"
+      en: "I can't find adventure.rb yet, or it's empty. It should already have your Level 1 code in it — open it in your editor and keep building!"
+      ja: "adventure.rb がまだ見つからないか、中身が空っぽみたいです。レベル1のコードが入っているはずです。エディタで開いて、続きを作っていこう！"
+  - type: source
+    pattern: 'to_i'
+    hint:
+      en: "I couldn't find `.to_i` anywhere. You'll need it to turn the age the player types (which is text!) into a real number so you can do math with it. Ask your AI tutor about `.to_i`!"
+      ja: "`.to_i` が見つかりませんでした。プレイヤーが入力した年齢はただの文字なので、計算するには数字に変換する必要があります。AI先生に `.to_i` について聞いてみよう！"
   - type: run
-    stdin: "Hero\n12\n1\n"
-    expect: []
+    stdin: "Hero\n12\n"
+    expect: ['\d{4}']
     forbid: ['(NoMethodError|NameError|SyntaxError|TypeError|ArgumentError|RuntimeError|ZeroDivisionError)']
     hint:
-      en: "I ran your game as 'Hero', age 12, choosing option 1 — and it crashed or produced an error. Make sure every branch of your `if`/`case` prints something and doesn't call a method that doesn't exist."
-      ja: "'Hero'、年齢12、選択肢「1」でゲームを動かしてみたら、エラーで止まってしまいました。`if` や `case` のどの分岐でも、ちゃんと何かが表示されて、存在しないメソッドを呼び出していないか確認してみよう。"
+      en: "When I ran your game with the name 'Hero' and age 12, I didn't see the 4-digit year Hero turns 100 (or your program crashed). After reading the age with `gets.to_i`, calculate `100 - age`, add it to the current year, and print the result."
+      ja: "'Hero' という名前と年齢12でゲームを動かしてみたところ、Heroが100歳になる西暦（4桁の数字）が見つかりませんでした（またはエラーで止まってしまいました）。`gets.to_i` で年齢を読み取ったら、`100 - age` を計算して今の西暦に足し、その結果を表示してみよう。"

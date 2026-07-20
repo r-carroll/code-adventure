@@ -1,47 +1,42 @@
 id: 3
-xp: 150
+xp: 100
 title:
-  en: "The Infinite Loop"
-  ja: "終わらない冒険"
+  en: "Making Choices"
+  ja: "運命の選択"
 story:
-  en: "Right now your game says its piece and ends — like a single page torn from a book. Real adventures keep going: explore, fight, decide, again and again, until the hero wins, loses, or simply chooses to leave. It's time to wrap your whole game in a loop that only ends when the player types the secret word: `quit`."
-  ja: "今の君のゲームは、一言喋ったら終わってしまいます——まるで本から一枚だけ破り取ったページのように。本当の冒険は、探索して、戦って、決断して……それを何度も繰り返し、ヒーローが勝つか負けるか、あるいは自分から立ち去るまで続くものです。ゲーム全体をループで包み込み、プレイヤーが合言葉「quit」と入力したときだけ終わるようにしましょう。"
+  en: "A true hero doesn't just talk — they decide. Your game now needs a fork in the road: a moment where the player picks a path, a weapon, or a spell, and the story bends around their choice. But choices are only fun if nothing breaks — no matter what the player picks, your game must handle it gracefully."
+  ja: "本物のヒーローは、ただ喋るだけでは終わりません——選ぶのです。ここからは、プレイヤーが道や武器、呪文を選び、その選択によって物語が変わる「分かれ道」を作りましょう。ただし、選択が楽しいのは、何を選んでもゲームが壊れないときだけ。プレイヤーが何を選んでも、ちゃんと対応できるようにしましょう。"
 task:
   en:
-    - "Wrap your game's main flow in a loop (using `loop do` or `while`/`until`) so it keeps running instead of ending after one pass."
-    - "Let the player type `quit` at any point to politely exit the loop using `break` (or `exit`)."
-    - "Make sure the loop doesn't run forever by accident — test that typing `quit` actually ends the game."
+    - "Print a numbered menu of choices for the player (for example, a weapon, path, or action)."
+    - "Read the player's choice with `gets` and use `if`/`elsif`/`else` (or `case`) to react differently depending on what they picked."
+    - "Make sure every possible choice — including an unexpected one — leads to some printed response, without crashing."
   ja:
-    - "`loop do` や `while`/`until` を使って、ゲームのメイン部分をループで包み、一回で終わらずに繰り返し続くようにしましょう。"
-    - "プレイヤーがいつでも `quit` と入力したら、`break`（または `exit`）を使って、ループを丁寧に終了できるようにしましょう。"
-    - "ループが誤って永遠に終わらないように、`quit` と入力したら本当にゲームが終わることを確認しましょう。"
+    - "プレイヤーに番号つきの選択肢（例えば武器、道、行動など）を表示しましょう。"
+    - "`gets` でプレイヤーの選択を読み取り、`if`/`elsif`/`else`（または `case`）を使って選択ごとに違う反応を返しましょう。"
+    - "どんな選択（想定外の入力も含む）をしても、エラーで止まらずに何かしらのメッセージが表示されるようにしましょう。"
 concepts:
-  en: "Look for `loop do` or `while`/`until` — these tell the computer to repeat a block of code — and `break`, the 'emergency exit' that stops a loop from the inside.\n\nDeep dive: a condition like `input == 'quit'` is either true or false — this is called a Boolean. You can combine conditions with `&&` (AND) and `||` (OR) to build more complex rules, like 'keep looping while HP is above 0 AND the player hasn't quit.' If you ever get stuck in a loop that won't stop, you can always press `Ctrl + C` in the terminal to force it closed!"
-  ja: "注目ポイントは `loop do` や `while`/`until`（コードのかたまりを繰り返す命令）と、`break`（ループの中から抜け出す「非常出口」）です。\n\nもっと詳しく：`input == 'quit'` のような条件は、正しい（true）か正しくない（false）かのどちらかになります。これを真偽値（Boolean）と呼びます。`&&`（かつ）や `||`（または）を組み合わせれば、「HPが0より上、かつプレイヤーがまだやめていない間はループを続ける」といった複雑なルールも作れます。もしループが止まらなくなってしまったら、ターミナルで `Ctrl + C` を押せばいつでも強制終了できるから安心してね！"
+  en: "Look for `if`, `elsif`, `else` — the 'rules' of your game — and `==`, which checks whether two things are exactly equal (not to be confused with `=`, which assigns a value). A `case`/`when` statement is another clean way to handle many choices at once.\n\nDeep dive: `elsif` is short for 'else if' — it lets you check condition after condition until one matches. Ask your AI tutor why Ruby needs two equals signs (`==`) to compare, instead of one (`=`). Also think about capital letters: does your game treat 'Sword' and 'sword' as the same thing? If not, ask about `.downcase`!"
+  ja: "注目ポイントは `if`、`elsif`、`else` ——ゲームの「ルール」を決める部分です。それから `==`（2つのものが完全に同じかどうかを確認する記号。`=` は値を代入するための記号なので混同しないように！）。`case`/`when` を使うと、たくさんの選択肢をスッキリ書くこともできます。\n\nもっと詳しく：`elsif` は「そうでなければ、もし〜なら」という意味で、条件を順番にチェックしていきます。なぜRubyでは比べるときにイコールを2つ（`==`）使うのか、1つ（`=`）ではダメなのか、AI先生に聞いてみよう。あと、大文字と小文字も考えてみて——君のゲームは 'Sword' と 'sword' を同じものとして扱ってる？ もし違うなら `.downcase` について聞いてみよう！"
 power_prompts:
   en:
-    - "Can you show me how to wrap my whole game in a loop that only stops when the player types 'quit'?"
-    - "What's the difference between `loop do...break` and `while condition...end`?"
-    - "How do I combine two conditions with `&&` or `||` to decide when my loop should stop?"
+    - "How do I use `elsif` to handle more than two choices in my game?"
+    - "Why does Ruby use `==` to compare things instead of `=`?"
+    - "How can I make my code ignore capital letters, so 'Sword' and 'sword' both work the same way?"
   ja:
-    - "ゲーム全体を、プレイヤーが 'quit' と入力したときだけ終わるループで包む方法を教えて。"
-    - "`loop do...break` と `while 条件...end` の違いは何？"
-    - "`&&` や `||` を使って2つの条件を組み合わせ、ループが止まるタイミングを決める方法を教えて。"
+    - "ゲームで3つ以上の選択肢を扱うために `elsif` を使う方法を教えて。"
+    - "Rubyではなぜ比べるときに `=` じゃなくて `==` を使うの？"
+    - "大文字と小文字を区別せず、'Sword' でも 'sword' でも同じように動くようにするにはどうすればいい？"
 checks:
   - type: source
-    pattern: 'loop do|while|until'
+    pattern: '\bif\b|\bcase\b'
     hint:
-      en: "I couldn't find a loop in your code — `loop do`, `while`, or `until`. Your game needs to keep going instead of stopping after one round. Ask your AI tutor about loops in Ruby!"
-      ja: "コードの中にループ（`loop do`、`while`、`until`）が見つかりませんでした。ゲームは一回で終わらず、繰り返し続く必要があります。AI先生にRubyのループについて聞いてみよう！"
-  - type: source
-    pattern: 'break|exit'
-    hint:
-      en: "I couldn't find `break` or `exit`. Without one of these, your loop has no way to end when the player types 'quit'. Ask your AI tutor how to escape a loop!"
-      ja: "`break` や `exit` が見つかりませんでした。これがないと、プレイヤーが 'quit' と入力してもループが終わりません。AI先生にループから抜け出す方法を聞いてみよう！"
+      en: "I couldn't find an `if` or `case` statement. Your game needs to react differently depending on what the player picks. Ask your AI tutor: 'How do I use if/elsif/else to handle a player's choice?'"
+      ja: "`if` や `case` が見つかりませんでした。プレイヤーが選んだ内容によって、ゲームの反応を変える必要があります。AI先生に聞いてみよう：「プレイヤーの選択によって反応を変えるには if/elsif/else をどう使えばいい？」"
   - type: run
-    stdin: "Hero\n12\n1\nquit\n"
+    stdin: "Hero\n12\n1\n"
     expect: []
     forbid: ['(NoMethodError|NameError|SyntaxError|TypeError|ArgumentError|RuntimeError|ZeroDivisionError)']
     hint:
-      en: "I played through your game as 'Hero', age 12, picking option 1, then typing 'quit' — and something crashed. Make sure your loop and your quit handling work together without errors."
-      ja: "'Hero'、年齢12、選択肢「1」を選んで最後に 'quit' と入力してプレイしてみたところ、エラーが出てしまいました。ループと 'quit' の処理がうまく組み合わさっているか確認してみよう。"
+      en: "I ran your game as 'Hero', age 12, choosing option 1 — and it crashed or produced an error. Make sure every branch of your `if`/`case` prints something and doesn't call a method that doesn't exist."
+      ja: "'Hero'、年齢12、選択肢「1」でゲームを動かしてみたら、エラーで止まってしまいました。`if` や `case` のどの分岐でも、ちゃんと何かが表示されて、存在しないメソッドを呼び出していないか確認してみよう。"

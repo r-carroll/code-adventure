@@ -1,45 +1,40 @@
 id: 9
-xp: 250
+xp: 200
 title:
-  en: "Saving the Story"
-  ja: "物語を保存する"
+  en: "The Roll of the Dice"
+  ja: "ダイスを振れ"
 story:
-  en: "Every great story deserves a bookmark. What happens when your player needs to stop for dinner and come back tomorrow? Without saving, all their progress vanishes the moment the game closes. Give your hero a way to leave a mark on the world that lasts even after the terminal closes: typing `save` should write their progress to a file."
-  ja: "どんな素晴らしい物語にも、しおりが必要です。もしプレイヤーが夕食のために中断して、明日また続きをやりたくなったらどうしましょう？ 保存（セーブ）の仕組みがなければ、ゲームを閉じた瞬間にすべての進み具合が消えてしまいます。ターミナルを閉じたあとも残る、世界に足跡を残す方法をヒーローに与えましょう——`save` と入力したら、進み具合をファイルに書き込むようにします。"
+  en: "A game where the same thing happens every single time gets boring fast. Real adventures have risk — a blow that might miss, an item that might be rare, an event that surprises you. It's time to roll the dice: add randomness somewhere in your game."
+  ja: "毎回同じことしか起きないゲームは、すぐに飽きてしまいます。本当の冒険にはリスクがつきもの——攻撃が外れるかもしれないし、レアなアイテムが出るかもしれないし、思いがけない出来事が起きるかもしれません。ここでダイスを振ってみましょう。ゲームのどこかにランダム（乱数）の要素を加えます。"
 task:
   en:
-    - "Let the player type `save` at some point during the game."
-    - "When they do, write something about their progress (like their name, HP, or inventory) to a file using `File.write` or `File.open`."
+    - "Add randomness somewhere in your game using `rand` or `.sample` (for example, random damage, a randomly picked item, or a random event)."
+    - "Make sure the random outcome actually affects what happens or what's shown to the player."
   ja:
-    - "ゲームの途中で、プレイヤーが `save` と入力できるようにしましょう。"
-    - "`save` と入力されたら、`File.write` または `File.open` を使って、進み具合（名前、HP、持ち物など）をファイルに書き込みましょう。"
+    - "`rand` または `.sample` を使って、ゲームのどこかにランダムな要素を加えましょう（例：ランダムなダメージ、ランダムに選ばれるアイテム、ランダムなイベントなど）。"
+    - "そのランダムな結果が、実際にゲームの展開やプレイヤーへの表示に影響するようにしましょう。"
 concepts:
-  en: "Look for `File.write('save.txt', data)`, which creates a file (or overwrites one) and puts data inside it, and a check for the word `save` being typed by the player somewhere in your code.\n\nDeep dive: 'Persistence' is a big word that just means data sticking around even after the program (or the power) turns off. Files are the most basic way to achieve it. Ask your AI tutor what happens if `save.txt` doesn't exist yet when you try to read it — and how `File.exist?` can protect your game from crashing!"
-  ja: "注目ポイントは `File.write('save.txt', data)`（ファイルを作って——または上書きして——中にデータを書き込む）と、プレイヤーが `save` と入力したかどうかをコードのどこかで確認している部分です。\n\nもっと詳しく：「永続性（えいぞくせい / Persistence）」という難しい言葉は、プログラム（や電源）が止まってもデータが残ることを意味します。ファイルは、それを実現する一番基本的な方法です。もし `save.txt` がまだ存在しないときに読み込もうとしたらどうなるか、`File.exist?` を使ってゲームが止まらないようにする方法を、AI先生に聞いてみよう！"
+  en: "Look for `rand(1..10)` (gives a random number in that range) or `.sample` (picks a random item from an Array). A pattern like `if dice_roll > 15` creates a 'difficulty check' using that random number.\n\nDeep dive: computers aren't actually random — they use complex math to fake it, which is called pseudo-randomness. Ask your AI tutor how `rand` really works under the hood! Then try going further: could a roll of exactly 20 trigger a 'Critical Hit'? Could a 'Luck' stat add a bonus to the roll?"
+  ja: "注目ポイントは `rand(1..10)`（その範囲のランダムな数字を出す）や `.sample`（配列からランダムに1つ選ぶ）です。`if dice_roll > 15` のような書き方をすれば、そのランダムな数字を使った「難易度チェック」が作れます。\n\nもっと詳しく：実はコンピューターは本当のランダムが苦手です。複雑な計算を使ってランダムっぽく「見せかけて」います。これを疑似乱数（ぎじらんすう）と呼びます。`rand` が実際どういう仕組みで動いているのか、AI先生に聞いてみよう！さらに挑戦するなら——ダイスでぴったり20が出たら「クリティカルヒット」にできないかな？ 「運（Luck）」というステータスを作って、ダイスの結果にボーナスを足すこともできるかも？"
 power_prompts:
   en:
-    - "How can I save the player's name and HP to a text file called save.txt when they type 'save'?"
-    - "How do I read that file back when the game starts, so the player can continue where they left off?"
-    - "What happens if save.txt doesn't exist yet, and how does File.exist? help?"
+    - "How do I use `rand(1..20)` to simulate rolling a 20-sided dice?"
+    - "How can I use a random roll to decide if an attack hits or misses?"
+    - "Could you show me how to use `.sample` to randomly pick an item from an Array?"
   ja:
-    - "プレイヤーが 'save' と入力したときに、名前とHPを save.txt というテキストファイルに保存する方法を教えて。"
-    - "ゲームが始まるときにそのファイルを読み込んで、続きから遊べるようにする方法を教えて。"
-    - "もし save.txt がまだ存在しなかったらどうなるの？ File.exist? はどう役に立つの？"
+    - "`rand(1..20)` を使って20面ダイスを振るシミュレーションをする方法を教えて。"
+    - "ランダムなダイスの結果を使って、攻撃が命中したかミスしたか決める方法を教えて。"
+    - "`.sample` を使って配列からランダムにアイテムを選ぶ方法を教えて。"
 checks:
   - type: source
-    pattern: 'File\.(write|open)'
+    pattern: '\brand\b|\.sample'
     hint:
-      en: "I couldn't find `File.write` or `File.open` anywhere. You need one of these to actually save data to a file. Ask your AI tutor: 'How do I write data to a file in Ruby?'"
-      ja: "`File.write` や `File.open` が見つかりませんでした。データをファイルに保存するには、どちらかが必要です。AI先生に聞いてみよう：「Rubyでファイルにデータを書き込むにはどうすればいい？」"
-  - type: source
-    pattern: 'save'
-    hint:
-      en: "I couldn't find the word 'save' being checked anywhere in your code. The player needs to be able to type 'save' to trigger the file write. Ask your AI tutor how to detect a specific typed command!"
-      ja: "コードの中に 'save' という単語をチェックしている部分が見つかりませんでした。プレイヤーが 'save' と入力したら、ファイルへの書き込みが始まるようにする必要があります。AI先生に、特定の入力コマンドを検知する方法を聞いてみよう！"
+      en: "I couldn't find `rand` or `.sample` anywhere. Your game needs a bit of chance in it! Ask your AI tutor: 'How do I use rand to add randomness to my game?'"
+      ja: "`rand` や `.sample` が見つかりませんでした。ゲームには少し「運」の要素が必要です！AI先生に聞いてみよう：「rand を使ってゲームにランダムな要素を加えるにはどうすればいい？」"
   - type: run
-    stdin: "Hero\n12\nsave\nquit\n"
+    stdin: "Hero\n12\n1\nquit\n"
     expect: []
     forbid: ['(NoMethodError|NameError|SyntaxError|TypeError|ArgumentError|RuntimeError|ZeroDivisionError)']
     hint:
-      en: "I played 'Hero', age 12, typed 'save', then 'quit' — and something crashed. Make sure typing 'save' doesn't break your main loop, and that File.write has valid arguments."
-      ja: "'Hero'、年齢12で、'save' と入力してから 'quit' でプレイしてみたところ、エラーが出ました。'save' と入力してもメインループが壊れないか、`File.write` の引数が正しいか確認してみよう。"
+      en: "I played through your game and it crashed. Random numbers are still numbers — make sure you're not accidentally comparing them to text, or using a range that doesn't make sense."
+      ja: "ゲームを動かしてみたらエラーが出ました。ランダムな数字もあくまで数字です——文字と比べてしまっていないか、範囲の指定がおかしくないか確認してみよう。"

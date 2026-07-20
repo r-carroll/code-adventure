@@ -1,47 +1,42 @@
 id: 5
 xp: 150
 title:
-  en: "The Hero's Backpack"
-  ja: "勇者のバックパック"
+  en: "Organizing with Methods"
+  ja: "メソッドでスッキリ整理"
 story:
-  en: "Every hero collects things along the way — potions, swords, strange trinkets picked up in the dark. Your game needs a backpack: a list that can grow as the player finds new items. Create an inventory, let your hero pick things up, and give them a way to look inside."
-  ja: "どんなヒーローも、旅の途中でいろいろな物を集めていきます——ポーション、剣、暗闇で拾った不思議な品々。君のゲームにも「バックパック」、つまり見つけたアイテムが増えていくリストが必要です。持ち物リスト（インベントリ）を作り、ヒーローがアイテムを手に入れられるようにして、中身を確認できるようにしましょう。"
+  en: "Your game is growing — and growing code can turn into a tangled mess if you let it. Real adventurers organize their skills into a toolkit; real programmers organize their code into methods. Break your game into at least two named moves you can call whenever you need them, like a scene-setter and an action."
+  ja: "君のゲームはどんどん大きくなってきています——そのまま放っておくと、コードはすぐにごちゃごちゃの迷路になってしまいます。本物の冒険者が自分のスキルを整理して道具箱にまとめるように、プログラマーもコードを「メソッド」として整理します。少なくとも2つの名前付きの技（例えば、場面を表示する技と、行動を起こす技）を作って、呼び出せるようにしましょう。"
 task:
   en:
-    - "Create an inventory Array to hold the player's items (it can start empty)."
-    - "Add at least one item to the inventory using `<<` or `.push` somewhere during the game."
-    - "Give the player a way to see what's inside the inventory (for example, printing the Array)."
+    - "Create at least two methods with `def` (for example, one that prints a scene or header, and one that performs an action)."
+    - "Give at least one method the ability to receive information via an argument (for example, an amount of damage or healing)."
+    - "Call both methods somewhere in your game so they actually run."
   ja:
-    - "プレイヤーの持ち物を入れておくための配列（Array）を作りましょう（最初は空っぽでOK）。"
-    - "ゲームの中で `<<` または `.push` を使って、少なくとも1つアイテムをインベントリに追加しましょう。"
-    - "プレイヤーが持ち物の中身を確認できるようにしましょう（例えば配列を表示するなど）。"
+    - "`def` を使って、少なくとも2つのメソッドを作りましょう（例えば、場面やヘッダーを表示するメソッドと、何かの行動を行うメソッド）。"
+    - "少なくとも1つのメソッドには、引数（ひきすう）で情報を受け取れるようにしましょう（例えば、ダメージ量や回復量など）。"
+    - "作った2つのメソッドを、ゲームのどこかで実際に呼び出しましょう。"
 concepts:
-  en: "Look for `inventory = []` (creates an empty list) and `<<` or `.push` (adds something to the end of the list).\n\nDeep dive: Ruby (like most programming languages) counts positions starting at 0 — so the first item in your array is at index 0, the second at index 1. Ask your AI tutor why programmers start counting at zero! Arrays also come with built-in skills: you can `.sort` them, `.reverse` them, even `.shuffle` them, and `inventory.include?('Sword')` checks whether something is already in the list."
-  ja: "注目ポイントは `inventory = []`（空っぽのリストを作る）と、`<<` または `.push`（リストの最後に何かを追加する）です。\n\nもっと詳しく：Ruby（そしてほとんどのプログラミング言語）は、位置を **0** から数え始めます。つまり配列の1番目は0番目、2番目は1番目になります。なぜ0から数え始めるのか、AI先生に聞いてみよう！配列には便利な「組み込みの技」もあります。`.sort`（並べ替え）、`.reverse`（逆順）、`.shuffle`（シャッフル）などが使えます。また `inventory.include?('剣')` を使えば、リストの中にすでにあるかどうか確認できます。"
+  en: "Look for `def name_of_method` — this is how you 'define' a new skill — and the matching `end` that shows where it stops. Methods can take arguments, like `damage_player(amount)`, where `amount` is a specific value being handed in.\n\nDeep dive: a Return Value is what a method sends back after it runs — like a scout coming back from a mission with a report. Your code can use that report to decide what happens next (for example, checking if HP dropped to 0). Ask your AI tutor why programmers split code into methods instead of writing one giant list of instructions!"
+  ja: "注目ポイントは `def メソッド名`（新しい「技」を定義する命令）と、それに対応する `end`（技の終わりを示す）です。メソッドは `damage_player(amount)` のように引数（ひきすう）を受け取ることもできます。この `amount` が渡される具体的な値です。\n\nもっと詳しく：戻り値（Return Value）とは、メソッドが実行を終えたあとに送り返す答えのことです。偵察部隊がミッションから報告書を持って帰ってくるようなイメージです。その報告を使って、次に何をするか（例えばHPが0になったかどうか）を判断できます。なぜプログラマーは、1つの長いコードを書かずにメソッドへ分けるのか、AI先生に聞いてみよう！"
 power_prompts:
   en:
-    - "How do I create an Array in Ruby to hold inventory items like 'Sword' and 'Potion'?"
-    - "Can you show me how to `push` a new item into a list, and how to check how many items are in it?"
-    - "How would I remove an item from the inventory if the player uses it, like a potion?"
+    - "Can you show me how to pass information into a method, like a `damage_player(amount)` method that subtracts `amount` from my HP?"
+    - "What is a return value, and how can I use one to check if the player is still alive?"
+    - "Why do programmers split code into methods instead of writing one giant block?"
   ja:
-    - "'剣' や 'ポーション' のようなアイテムを入れる配列（Array）をRubyで作る方法を教えて。"
-    - "新しいアイテムをリストに `push` する方法と、リストの中に何個アイテムがあるか数える方法を教えて。"
-    - "プレイヤーがポーションを使ったときに、インベントリからアイテムを削除する方法を教えて。"
+    - "`damage_player(amount)` のようなメソッドを作って、`amount` の分だけHPを減らす方法を教えて。メソッドに情報を渡すやり方が知りたい。"
+    - "戻り値（Return Value）って何？ それを使ってプレイヤーがまだ生きているか確認する方法を教えて。"
+    - "プログラマーはなぜ1つの長いコードを書かずに、メソッドに分けるの？"
 checks:
   - type: source
-    pattern: '=\s*\['
+    pattern: 'def \w+[\s\S]*def \w+'
     hint:
-      en: "I couldn't find an Array being created (something like `inventory = []`). Ask your AI tutor: 'How do I create an Array to hold my inventory?'"
-      ja: "配列を作っている部分（`inventory = []` のような形）が見つかりませんでした。AI先生に聞いてみよう：「持ち物を入れる配列を作るにはどうすればいい？」"
-  - type: source
-    pattern: '<<|\.push'
-    hint:
-      en: "I couldn't find `<<` or `.push` — you need one of these to actually add items to your inventory. Ask your AI tutor how to add things to an Array!"
-      ja: "`<<` や `.push` が見つかりませんでした。インベントリにアイテムを追加するには、どちらかが必要です。AI先生に配列へアイテムを追加する方法を聞いてみよう！"
+      en: "I could only find one `def` (or none) — I'm looking for at least two separate methods in your code. Ask your AI tutor: 'How do I organize my game into methods?'"
+      ja: "`def` が1つしか（または全く）見つかりませんでした。少なくとも2つの別々のメソッドが必要です。AI先生に聞いてみよう：「ゲームをメソッドに整理するにはどうすればいい？」"
   - type: run
     stdin: "Hero\n12\n1\nquit\n"
     expect: []
     forbid: ['(NoMethodError|NameError|SyntaxError|TypeError|ArgumentError|RuntimeError|ZeroDivisionError)']
     hint:
-      en: "I played through your game and it crashed. Double check your Array syntax — brackets, commas, and quotes all matter!"
-      ja: "ゲームを動かしてみたらエラーが出てしまいました。配列の書き方——かっこ、カンマ、クォーテーションなど——をもう一度確認してみよう！"
+      en: "I played through your game and something crashed. Check that both your methods are defined correctly (with matching `end`s) and called the way you defined them."
+      ja: "ゲームを実際に動かしてみたら、エラーが出てしまいました。2つのメソッドがどちらもきちんと定義されていて（`end` を忘れずに）、定義した通りに呼び出されているか確認してみよう。"

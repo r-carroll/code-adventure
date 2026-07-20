@@ -110,7 +110,7 @@ Every level follows the same simple loop:
 3. **Check** your work with `ruby quest.rb check` — it tells you exactly what's missing, with a friendly hint (never the answer).
 4. **Level up!** ✅ Pass the check and you earn XP, a new rank, and a peek at what's next.
 
-You grow **one file** — `adventure.rb` — across all 10 levels. By the end, it's a whole game you built yourself.
+You grow **one file** — `adventure.rb` — across all 11 levels. By the end, it's a whole game you built yourself.
 
 ### Commands
 
@@ -165,7 +165,7 @@ Stuck, or see a scary red error message?
 
 ## 🏆 Want to See a Finished Example?
 
-Check out [`adventure_sample.rb`](./adventure_sample.rb) — a completed Level 10 game. Run it with:
+Check out [`adventure_sample.rb`](./adventure_sample.rb) — a completed Level 11 game. Run it with:
 ```
 ruby adventure_sample.rb
 ```
